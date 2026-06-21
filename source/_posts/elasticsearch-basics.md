@@ -1,6 +1,7 @@
 ---
-title: ElasticSearch基础知识
+title: Elasticsearch Fundamentals
 date: 2026-06-21 09:11:51
+description: '系统梳理 Elasticsearch 核心原理：倒排索引四层结构、写入与查询流程、BM25 评分、HNSW 向量索引、聚合机制、集群分片与脑裂防护。'
 categories:
   - 数据库
 tags:
