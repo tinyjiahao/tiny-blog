@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Tiny Blog
-subtitle: ''
-description: ''
-keywords:
+title: 小加号笔记
+subtitle: '技术与思考的碎片'
+description: '小加号笔记——分享后端技术、建站经验与学习心得'
+keywords: 技术博客,Hexo,后端开发,ElasticSearch,建站
 author: 小加号笔记
 language: zh-CN
-timezone: ''
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -17,8 +17,8 @@ url: https://blog.searchdiff.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Remove trailing 'index.html' from permalinks
+  trailing_html: false # Remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -102,6 +102,14 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# Sitemap
+## https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
 
 # Search
 ## https://github.com/next-theme/hexo-generator-searchdb
