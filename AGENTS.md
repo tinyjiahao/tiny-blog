@@ -110,6 +110,8 @@ tags:
 
 ## Git 约定
 
+> ⚠️ **提交确认（强制约定）**：完成改动后**不要自动执行 `git add` / `git commit` / `git push`**。先向用户汇总改动内容，等待用户明确确认（如「提交吧」「可以提交」）后再执行提交。本地验证步骤（`npm run clean && npm run build` 等）可照常执行，不受此约束。
+
 - 提交邮箱（本仓库级）：`me@blog.searchdiff.com`（已通过 `git config user.email` 设为仓库级，勿改全局配置）
 - 提交信息建议带前缀：`post:`（新文章）、`docs:`（文档）、`config:`（配置）、`chore:`（杂项）
 - 提交前确认 `git status` 不含 `public/`、`db.json`、`node_modules/`
@@ -123,3 +125,4 @@ tags:
 - [ ] 是否跑过 `npm run clean && npm run build` 且无报错？
 - [ ] 若涉及部署配置，`DEPLOY.md` 是否同步？
 - [ ] 若新增文章，front-matter 是否含 `categories` 与 `tags`？
+- [ ] **提交前是否已暂停，等待用户确认？不要自动 git add/commit/push。**
