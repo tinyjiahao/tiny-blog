@@ -57,6 +57,29 @@ html.theme-dark {
     color: #ccc !important;
   }
 
+  // 导航选中项：覆盖 Gemini 主题的浅色高亮背景
+  .menu-item-active a,
+  .menu-item a.active,
+  .menu-item.active a {
+    background: #444 !important;
+    color: #eee !important;
+    border-color: #555 !important;
+  }
+
+  // 阅读全文 / 按钮
+  .btn,
+  a.btn {
+    background: #444 !important;
+    color: #ccc !important;
+    border-color: #666 !important;
+
+    &:hover {
+      background: #555 !important;
+      color: #eee !important;
+      border-color: #888 !important;
+    }
+  }
+
   // 侧边栏站点统计链接 hover
   .site-state-item:hover a,
   .menu-item a:hover {
