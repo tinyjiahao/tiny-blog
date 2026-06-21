@@ -20,17 +20,20 @@
 
 | 配置项 | 值 |
 | --- | --- |
-| **Framework preset** | `None`（或 Hexo，如有该选项） |
-| **Build command** | `npm run build` |
+| **Framework preset** | `None` |
+| **Build command** | `npm install --no-fund --no-audit && npx hexo generate` |
 | **Build output directory** | `public` |
 | **Root directory** | （留空，使用仓库根） |
+
+> **说明**：Cloudflare Pages 在有 `package-lock.json` 时会自动执行 `npm ci`，与 npm v10 存在已知兼容问题（"Exit handler never called!"）。因此本项目：
+> 1. 将 `package-lock.json` 加入 `.gitignore` 不提交，避免触发 `npm ci`
+> 2. Build command 中显式执行 `npm install`，跳过 Cloudflare 的默认安装步骤
 
 ### 环境变量（建议设置）
 
 | 变量名 | 值 | 说明 |
 | --- | --- | --- |
-| `NODE_VERSION` | `22` | 与本地 `.nvmrc` 一致，避免构建时 Node 版本不符报错 |
-| `NPM_FLAGS` | `--no-audit --no-fund` | （可选）加速安装，输出更干净 |
+| `NODE_VERSION` | `22` | 与本地一致，避免构建时 Node 版本不符报错 |
 
 > 在 **Settings → Variables and Secrets** 中添加环境变量。
 

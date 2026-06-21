@@ -1,0 +1,57 @@
+{# 主题切换按钮：默认跟随系统，用户手动点击后用 localStorage 记住选择 #}
+<button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换浅色/深色主题">
+  <span class="theme-toggle-icon">🌙</span>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  var STORAGE_KEY = 'theme-mode';      // 值：'light' | 'dark'，未设置=跟随系统
+  var DARK_CLASS = 'theme-dark';
+  var toggle = document.getElementById('theme-toggle');
+  var icon = toggle.querySelector('.theme-toggle-icon');
+
+  // 系统当前是否处于深色（用于"跟随系统"模式）
+  function systemPrefersDark() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  // 应用主题到 <html>
+  function applyTheme(dark) {
+    if (dark) {
+      document.documentElement.classList.add(DARK_CLASS);
+    } else {
+      document.documentElement.classList.remove(DARK_CLASS);
+    }
+    icon.textContent = dark ? '☀️' : '🌙';
+  }
+
+  // 计算当前应当使用的主题：
+  // 有手动选择(localStorage) 用手动选择；否则跟随系统
+  function resolveDark() {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'light') return false;
+    if (saved === 'dark') return true;
+    return systemPrefersDark();  // 未设置 → 跟随系统
+  }
+
+  // 初始化：立即应用（避免与系统深色叠加产生不一致）
+  applyTheme(resolveDark());
+
+  // 点击按钮：在 light/dark 间切换，并写入 localStorage 覆盖系统偏好
+  toggle.addEventListener('click', function () {
+    var currentlyDark = document.documentElement.classList.contains(DARK_CLASS);
+    var nextDark = !currentlyDark;
+    localStorage.setItem(STORAGE_KEY, nextDark ? 'dark' : 'light');
+    applyTheme(nextDark);
+  });
+
+  // 系统主题变化时：仅当用户没有手动选择时才跟随
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      applyTheme(e.matches);
+    }
+  });
+})();
+</script>
