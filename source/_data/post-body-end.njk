@@ -1,0 +1,26 @@
+{# Giscus 评论：动态读取当前主题，保持与博客深色/浅色模式一致 #}
+<div class="giscus-wrapper" style="margin-top: 2.5rem;"></div>
+<script>
+(function () {
+  var stored = localStorage.getItem('theme-mode');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var isDark = stored === 'dark' || (!stored && prefersDark);
+
+  var s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  s.setAttribute('data-repo', 'tinyjiahao/tiny-blog');
+  s.setAttribute('data-repo-id', 'R_kgDOTAlUbQ');
+  s.setAttribute('data-category', 'Announcements');
+  s.setAttribute('data-category-id', 'DIC_kwDOTAlUbc4C_mvm');
+  s.setAttribute('data-mapping', 'pathname');
+  s.setAttribute('data-strict', '0');
+  s.setAttribute('data-reactions-enabled', '1');
+  s.setAttribute('data-emit-metadata', '0');
+  s.setAttribute('data-input-position', 'bottom');
+  s.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  s.setAttribute('data-lang', 'zh-CN');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.async = true;
+  document.querySelector('.giscus-wrapper').appendChild(s);
+})();
+</script>

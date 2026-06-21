@@ -17,7 +17,18 @@
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
-  // 应用主题到 <html>
+  // 同步 Giscus iframe 主题
+  function syncGiscus(dark) {
+    var iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: dark ? 'dark' : 'light' } } },
+        'https://giscus.app'
+      );
+    }
+  }
+
+  // 应用主题到 <html>，并同步 Giscus
   function applyTheme(dark) {
     if (dark) {
       document.documentElement.classList.add(DARK_CLASS);
@@ -25,6 +36,7 @@
       document.documentElement.classList.remove(DARK_CLASS);
     }
     icon.textContent = dark ? '☀️' : '🌙';
+    syncGiscus(dark);
   }
 
   // 计算当前应当使用的主题：
