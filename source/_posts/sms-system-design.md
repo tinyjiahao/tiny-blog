@@ -33,7 +33,8 @@ tags:
 
 ## 一、初始实现与问题分析
 
-### 原始代码
+### 原始实现
+下面是最容易想到的实现方案，通过两个map记录上次发送时间和当天的发送次数，每次发送时做下对比即可判断是否要发送，
 
 ```java
 private Map<String, Long> lastSendTimeMap = new ConcurrentHashMap<>();
@@ -61,6 +62,7 @@ public boolean sendMessage(String phoneNo, String message) {
 ```
 
 ### 问题清单
+上面的实现对于单机串行发送情况下是可以作为原型实现的，但是在多线程、高流量、集群等场景下是存在很多问题的：
 
 | 优先级 | 问题 | 说明 |
 |--------|------|------|
