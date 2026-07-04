@@ -1,7 +1,7 @@
 ---
-title: MCP 协议是什么
+title: MCP 协议简要介绍
 date: 2026-07-04 20:40:07
-description: '「MCP 协议是什么」—— 从 AI 应用连接外部工具的痛点讲起，系统梳理 Model Context Protocol 的定位、Host/Client/Server 架构、Tools/Resources/Prompts 三类能力、调用流程、传输方式、安全边界，并用 TypeScript 创建一个最小 MCP Server。'
+description: '「MCP 协议简要介绍」—— 从 AI 应用连接外部工具的痛点讲起，系统梳理 Model Context Protocol 的定位、Host/Client/Server 架构、Tools/Resources/Prompts 三类能力、调用流程、传输方式、安全边界，并用 TypeScript 创建一个最小 MCP Server。'
 categories:
   - AI 工程
 tags:
