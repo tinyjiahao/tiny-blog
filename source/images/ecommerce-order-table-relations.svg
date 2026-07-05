@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-label="电商下单系统数据库表关系图">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="one" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M3 2 L3 12 M7 2 L7 12" stroke="#0f766e" stroke-width="2" fill="none"/>
+    </marker>
+    <marker id="many" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto">
+      <path d="M3 3 L15 9 L3 15 M3 9 L15 9" stroke="#64748b" stroke-width="2" fill="none"/>
+    </marker>
+    <style>
+      .title{font:700 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:500 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .table-name{font:800 22px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .field{font:500 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#334155}
+      .key{font:800 14px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#0f766e}
+      .desc{font:600 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .rel{font:700 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#334155}
+      .line{stroke:#64748b;stroke-width:3;fill:none;marker-start:url(#one);marker-end:url(#many)}
+      .soft{stroke:#94a3b8;stroke-width:3;fill:none;stroke-dasharray:8 8;marker-end:url(#many)}
+    </style>
+  </defs>
+  <rect width="1500" height="860" rx="32" fill="url(#bg3)"/>
+  <text x="64" y="72" class="title">电商下单系统核心表关系</text>
+  <text x="64" y="106" class="sub">订单主表是中心，明细、支付单、库存预占、状态流水都通过 order_id 关联；幂等表通过业务键保护重复请求和重复事件</text>
+
+  <g filter="url(#shadow3)">
+    <rect x="575" y="180" width="350" height="270" rx="22" fill="#fff"/>
+    <rect x="575" y="180" width="350" height="58" rx="22" fill="#0f766e"/>
+    <path d="M575 216 H925 V238 H575 Z" fill="#0f766e"/>
+    <text x="678" y="218" class="table-name">orders</text>
+    <text x="604" y="270" class="key">PK order_id</text>
+    <text x="604" y="300" class="field">user_id</text>
+    <text x="604" y="330" class="field">status</text>
+    <text x="604" y="360" class="field">total_amount</text>
+    <text x="604" y="390" class="field">pay_deadline</text>
+    <text x="604" y="420" class="field">created_at / paid_at</text>
+  </g>
+
+  <g filter="url(#shadow3)">
+    <rect x="90" y="170" width="330" height="220" rx="20" fill="#fff"/>
+    <rect x="90" y="170" width="330" height="54" rx="20" fill="#14b8a6"/>
+    <path d="M90 204 H420 V224 H90 Z" fill="#14b8a6"/>
+    <text x="180" y="207" class="table-name">order_items</text>
+    <text x="120" y="255" class="key">PK item_id</text>
+    <text x="120" y="285" class="key">FK order_id</text>
+    <text x="120" y="315" class="field">sku_id / qty</text>
+    <text x="120" y="345" class="field">price_snapshot</text>
+    <text x="120" y="375" class="field">item_amount</text>
+  </g>
+
+  <g filter="url(#shadow3)">
+    <rect x="1080" y="150" width="330" height="240" rx="20" fill="#fff"/>
+    <rect x="1080" y="150" width="330" height="54" rx="20" fill="#0ea5a6"/>
+    <path d="M1080 184 H1410 V204 H1080 Z" fill="#0ea5a6"/>
+    <text x="1154" y="187" class="table-name">payment_orders</text>
+    <text x="1110" y="235" class="key">PK pay_id</text>
+    <text x="1110" y="265" class="key">FK order_id</text>
+    <text x="1110" y="295" class="field">channel / amount</text>
+    <text x="1110" y="325" class="field">status</text>
+    <text x="1110" y="355" class="field">channel_trade_no</text>
+  </g>
+
+  <g filter="url(#shadow3)">
+    <rect x="90" y="530" width="360" height="230" rx="20" fill="#fff"/>
+    <rect x="90" y="530" width="360" height="54" rx="20" fill="#f59e0b"/>
+    <path d="M90 564 H450 V584 H90 Z" fill="#f59e0b"/>
+    <text x="166" y="567" class="table-name">stock_reservations</text>
+    <text x="120" y="615" class="key">PK reservation_id</text>
+    <text x="120" y="645" class="key">FK order_id</text>
+    <text x="120" y="675" class="field">sku_id / qty</text>
+    <text x="120" y="705" class="field">status: RESERVED / CONFIRMED</text>
+    <text x="120" y="735" class="field">expire_at</text>
+  </g>
+
+  <g filter="url(#shadow3)">
+    <rect x="575" y="560" width="350" height="220" rx="20" fill="#fff"/>
+    <rect x="575" y="560" width="350" height="54" rx="20" fill="#64748b"/>
+    <path d="M575 594 H925 V614 H575 Z" fill="#64748b"/>
+    <text x="642" y="597" class="table-name">order_status_logs</text>
+    <text x="604" y="645" class="key">PK log_id</text>
+    <text x="604" y="675" class="key">FK order_id</text>
+    <text x="604" y="705" class="field">from_status / to_status</text>
+    <text x="604" y="735" class="field">event_id</text>
+    <text x="604" y="765" class="field">operator / created_at</text>
+  </g>
+
+  <g filter="url(#shadow3)">
+    <rect x="1080" y="550" width="330" height="210" rx="20" fill="#fff"/>
+    <rect x="1080" y="550" width="330" height="54" rx="20" fill="#7c3aed"/>
+    <path d="M1080 584 H1410 V604 H1080 Z" fill="#7c3aed"/>
+    <text x="1150" y="587" class="table-name">idempotent_records</text>
+    <text x="1110" y="635" class="key">PK biz_key</text>
+    <text x="1110" y="665" class="field">request_hash</text>
+    <text x="1110" y="695" class="field">biz_type</text>
+    <text x="1110" y="725" class="field">result_snapshot</text>
+    <text x="1110" y="755" class="field">expire_at</text>
+  </g>
+
+  <path class="line" d="M575 292 C510 292 490 282 430 282"/>
+  <text x="462" y="260" class="rel">1 : N 明细</text>
+  <path class="line" d="M925 284 C985 284 1012 272 1070 268"/>
+  <text x="960" y="248" class="rel">1 : N 支付尝试</text>
+  <path class="line" d="M575 390 C496 450 494 616 460 646"/>
+  <text x="468" y="515" class="rel">1 : N 库存预占</text>
+  <path class="line" d="M750 450 L750 550"/>
+  <text x="770" y="507" class="rel">1 : N 状态流水</text>
+  <path class="soft" d="M925 395 C1014 444 1076 542 1138 550"/>
+  <text x="1032" y="476" class="rel">事件/请求幂等</text>
+
+  <rect x="70" y="800" width="1360" height="38" rx="19" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="104" y="824" class="desc">设计要点：orders 是状态事实表；order_status_logs 记录状态流转证据；payment_orders 和 stock_reservations 支撑支付、库存的独立补偿；idempotent_records 保护重复请求。</text>
+</svg>

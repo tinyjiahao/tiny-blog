@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-label="电商下单系统核心链路图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eef7f4"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#0ea5a6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title{font:700 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:500 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .box-title{font:700 21px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .box-sub{font:500 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#64748b}
+      .hub-title{font:800 25px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .hub-sub{font:500 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#dffcf7}
+      .badge{font:700 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+      .line{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .event{stroke:#f59e0b;stroke-width:3;fill:none;stroke-dasharray:8 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1400" height="760" rx="32" fill="url(#bg)"/>
+  <text x="64" y="72" class="title">电商下单系统核心链路</text>
+  <text x="64" y="106" class="sub">同步链路只做强校验与关键状态落库，履约、通知、积分等通过事件异步推进</text>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="180" width="210" height="106" rx="20" fill="#fff"/>
+    <text x="102" y="222" class="box-title">用户/客户端</text>
+    <text x="102" y="252" class="box-sub">提交购物车、地址</text>
+    <text x="102" y="276" class="box-sub">优惠券、支付方式</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="360" y="180" width="210" height="106" rx="20" fill="#fff"/>
+    <text x="390" y="222" class="box-title">API 网关</text>
+    <text x="390" y="252" class="box-sub">鉴权、限流</text>
+    <text x="390" y="276" class="box-sub">幂等 Key 校验</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="650" y="158" width="250" height="150" rx="24" fill="url(#hub)"/>
+    <text x="702" y="215" class="hub-title">下单编排服务</text>
+    <text x="706" y="250" class="hub-sub">价格快照 / 库存预占</text>
+    <text x="706" y="276" class="hub-sub">订单落库 / 支付发起</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1010" y="92" width="236" height="94" rx="18" fill="#fff"/>
+    <text x="1040" y="130" class="box-title">商品与价格</text>
+    <text x="1040" y="160" class="box-sub">SKU、价格、优惠快照</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1010" y="226" width="236" height="94" rx="18" fill="#fff"/>
+    <text x="1040" y="264" class="box-title">库存服务</text>
+    <text x="1040" y="294" class="box-sub">预占 / 确认 / 释放</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1010" y="360" width="236" height="94" rx="18" fill="#fff"/>
+    <text x="1040" y="398" class="box-title">支付服务</text>
+    <text x="1040" y="428" class="box-sub">支付单、回调、对账</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="650" y="500" width="250" height="112" rx="20" fill="#fff"/>
+    <text x="690" y="544" class="box-title">订单库</text>
+    <text x="690" y="574" class="box-sub">订单主表、明细、状态流水</text>
+    <text x="690" y="596" class="box-sub">支付单、库存预占记录</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="360" y="500" width="210" height="112" rx="20" fill="#fff"/>
+    <text x="390" y="544" class="box-title">消息队列</text>
+    <text x="390" y="574" class="box-sub">OrderCreated</text>
+    <text x="390" y="596" class="box-sub">PaymentPaid / Timeout</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="72" y="500" width="210" height="112" rx="20" fill="#fff"/>
+    <text x="102" y="544" class="box-title">异步消费者</text>
+    <text x="102" y="574" class="box-sub">履约、通知、积分</text>
+    <text x="102" y="596" class="box-sub">搜索索引、风控审计</text>
+  </g>
+
+  <path class="line" d="M282 233 L350 233"/>
+  <path class="line" d="M570 233 L640 233"/>
+  <path class="line" d="M900 214 C955 180 960 142 1000 138"/>
+  <path class="line" d="M900 246 L1000 272"/>
+  <path class="line" d="M900 282 C952 318 960 392 1000 406"/>
+  <path class="line" d="M775 308 L775 490"/>
+  <path class="event" d="M650 556 L580 556"/>
+  <path class="event" d="M360 556 L292 556"/>
+
+  <rect x="72" y="668" width="1256" height="42" rx="21" fill="#ecfeff" stroke="#99f6e4"/>
+  <text x="108" y="695" class="badge">面试主线：幂等防重、库存不超卖、支付最终一致、MQ 异步解耦、超时关单与补偿对账</text>
+</svg>
