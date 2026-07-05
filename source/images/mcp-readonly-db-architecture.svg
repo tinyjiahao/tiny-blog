@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">只读数据库 MCP Server 架构</title>
+  <desc id="desc">AI Agent 通过 stdio 连接 MCP Server，MCP Server 通过 mysql2 使用只读账号访问 MySQL。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6feb"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #2f6f9f; stroke-width: 2; rx: 18; }
+      .db { fill: #fff7ed; stroke: #c2410c; stroke-width: 2; rx: 18; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .label { font: 700 21px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .edge { stroke: #1f6feb; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .edge-label { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f6feb; }
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="640"/>
+  <text class="title" x="480" y="58" text-anchor="middle">只读数据库 MCP Server 架构</text>
+
+  <rect class="card" x="270" y="95" width="420" height="125"/>
+  <text class="label" x="480" y="132" text-anchor="middle">AI Agent / MCP Host</text>
+  <text class="text" x="335" y="166">• 管理对话和模型调用</text>
+  <text class="text" x="335" y="194">• 展示工具调用并做用户确认</text>
+
+  <path class="edge" d="M480 222 L480 293"/>
+  <text class="edge-label" x="500" y="255">MCP over stdio</text>
+  <text class="edge-label" x="500" y="278">JSON-RPC messages</text>
+
+  <rect class="card" x="270" y="300" width="420" height="155"/>
+  <text class="label" x="480" y="337" text-anchor="middle">readonly-db-mcp-server</text>
+  <text class="text" x="335" y="371">• 暴露 tools</text>
+  <text class="text" x="335" y="399">• 校验 SQL、控制超时和行数</text>
+  <text class="text" x="335" y="427">• 记录审计日志</text>
+
+  <path class="edge" d="M480 457 L480 528"/>
+  <text class="edge-label" x="500" y="499">mysql2 + 只读账号</text>
+
+  <rect class="db" x="270" y="535" width="420" height="85"/>
+  <text class="label" x="480" y="570" text-anchor="middle">MySQL</text>
+  <text class="text" x="355" y="600">只读账号 / 最小权限 / 业务数据</text>
+</svg>

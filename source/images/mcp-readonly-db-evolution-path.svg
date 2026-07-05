@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="280" viewBox="0 0 1080 280" role="img" aria-labelledby="title desc">
+  <title id="title">只读数据库 MCP Server 的演进路径</title>
+  <desc id="desc">从本地 stdio demo 演进到远程 Streamable HTTP 服务的路径。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .node { fill: #ffffff; stroke: #2563eb; stroke-width: 2; rx: 16; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .edge { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1080" height="280"/>
+  <text class="title" x="540" y="55" text-anchor="middle">可靠的演进路径：先验证价值，再增加复杂度</text>
+  <rect class="node" x="40" y="120" width="150" height="72"/>
+  <text class="text" x="115" y="151" text-anchor="middle">本地 stdio</text>
+  <text class="text" x="115" y="174" text-anchor="middle">Demo</text>
+  <path class="edge" d="M193 156 L245 156"/>
+  <rect class="node" x="250" y="120" width="150" height="72"/>
+  <text class="text" x="325" y="151" text-anchor="middle">连接</text>
+  <text class="text" x="325" y="174" text-anchor="middle">开发库</text>
+  <path class="edge" d="M403 156 L455 156"/>
+  <rect class="node" x="460" y="120" width="150" height="72"/>
+  <text class="text" x="535" y="151" text-anchor="middle">连接只读</text>
+  <text class="text" x="535" y="174" text-anchor="middle">测试库</text>
+  <path class="edge" d="M613 156 L665 156"/>
+  <rect class="node" x="670" y="120" width="150" height="72"/>
+  <text class="text" x="745" y="151" text-anchor="middle">字段脱敏</text>
+  <text class="text" x="745" y="174" text-anchor="middle">与审计</text>
+  <path class="edge" d="M823 156 L875 156"/>
+  <rect class="node" x="880" y="105" width="160" height="102"/>
+  <text class="text" x="960" y="138" text-anchor="middle">只读副本</text>
+  <text class="text" x="960" y="161" text-anchor="middle">+</text>
+  <text class="text" x="960" y="184" text-anchor="middle">Streamable HTTP</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="780" viewBox="0 0 960 780" role="img" aria-labelledby="title desc">
+  <title id="title">一次 MCP 数据库查询调用链</title>
+  <desc id="desc">从用户提问到 Agent 基于真实数据生成分析结论的完整调用链。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #2563eb; stroke-width: 2; rx: 16; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .small { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .edge { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="780"/>
+  <text class="title" x="480" y="55" text-anchor="middle">一次 MCP 数据库查询调用链</text>
+
+  <g transform="translate(260,90)">
+    <rect class="box" width="440" height="66"/>
+    <text class="text" x="220" y="40" text-anchor="middle">用户提问</text>
+  </g>
+  <path class="edge" d="M480 158 L480 195"/>
+  <g transform="translate(260,198)">
+    <rect class="box" width="440" height="66"/>
+    <text class="text" x="220" y="40" text-anchor="middle">AI Agent 判断需要查库</text>
+  </g>
+  <path class="edge" d="M480 266 L480 303"/>
+  <g transform="translate(260,306)">
+    <rect class="box" width="440" height="76"/>
+    <text class="text" x="220" y="35" text-anchor="middle">MCP Host 展示/确认工具调用</text>
+    <text class="small" x="220" y="58" text-anchor="middle">用户可看到 Agent 准备调用什么工具</text>
+  </g>
+  <path class="edge" d="M480 384 L480 421"/>
+  <g transform="translate(260,424)">
+    <rect class="box" width="440" height="76"/>
+    <text class="text" x="220" y="35" text-anchor="middle">MCP Client 发送 JSON-RPC 请求</text>
+    <text class="small" x="220" y="58" text-anchor="middle">通过 stdio 连接本地 MCP Server</text>
+  </g>
+  <path class="edge" d="M480 502 L480 539"/>
+  <g transform="translate(260,542)">
+    <rect class="box" width="440" height="76"/>
+    <text class="text" x="220" y="35" text-anchor="middle">MCP Server 校验参数和 SQL</text>
+    <text class="small" x="220" y="58" text-anchor="middle">只读校验、LIMIT、超时、审计</text>
+  </g>
+  <path class="edge" d="M480 620 L480 657"/>
+  <g transform="translate(260,660)">
+    <rect class="box" width="440" height="76"/>
+    <text class="text" x="220" y="35" text-anchor="middle">返回查询结果，Agent 生成结论</text>
+    <text class="small" x="220" y="58" text-anchor="middle">回答基于真实数据，不再只给泛泛建议</text>
+  </g>
+</svg>
