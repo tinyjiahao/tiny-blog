@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="760" viewBox="0 0 1050 760" role="img" aria-labelledby="title desc">
+  <title id="title">只读数据库工具的安全校验流水线</title>
+  <desc id="desc">模型生成 SQL 后依次经过参数校验、只读校验、资源限制、只读账号执行和审计日志。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+    <style>
+      .bg { fill: #fff7ed; }
+      .box { fill: #ffffff; stroke: #dc2626; stroke-width: 2; rx: 16; }
+      .reject { fill: #fef2f2; stroke: #b91c1c; stroke-width: 2; rx: 16; }
+      .ok { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; rx: 16; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .hint { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .edge { stroke: #dc2626; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .pass { stroke: #16a34a; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1050" height="760"/>
+  <text class="title" x="525" y="55" text-anchor="middle">只读数据库工具的安全校验流水线</text>
+
+  <rect class="box" x="360" y="88" width="330" height="58"/>
+  <text class="text" x="525" y="124" text-anchor="middle">模型生成 SQL</text>
+  <path class="pass" d="M525 148 L525 185"/>
+
+  <rect class="box" x="360" y="188" width="330" height="72"/>
+  <text class="text" x="525" y="218" text-anchor="middle">参数 schema 校验</text>
+  <text class="hint" x="525" y="243" text-anchor="middle">SQL 长度、limit、params 类型</text>
+  <path class="edge" d="M690 224 L800 224"/>
+  <text class="hint" x="735" y="208">不通过</text>
+  <rect class="reject" x="812" y="188" width="150" height="72"/>
+  <text class="text" x="887" y="231" text-anchor="middle">拒绝调用</text>
+  <path class="pass" d="M525 262 L525 305"/>
+  <text class="hint" x="548" y="286">通过</text>
+
+  <rect class="box" x="360" y="308" width="330" height="72"/>
+  <text class="text" x="525" y="338" text-anchor="middle">SQL 只读校验</text>
+  <text class="hint" x="525" y="363" text-anchor="middle">拒绝写操作、多语句、危险关键字</text>
+  <path class="edge" d="M690 344 L800 344"/>
+  <text class="hint" x="735" y="328">命中风险</text>
+  <rect class="reject" x="812" y="308" width="150" height="72"/>
+  <text class="text" x="887" y="351" text-anchor="middle">返回错误</text>
+  <path class="pass" d="M525 382 L525 425"/>
+  <text class="hint" x="548" y="406">通过</text>
+
+  <rect class="box" x="360" y="428" width="330" height="72"/>
+  <text class="text" x="525" y="458" text-anchor="middle">追加 LIMIT / 设置超时</text>
+  <text class="hint" x="525" y="483" text-anchor="middle">控制行数、执行时间和连接资源</text>
+  <path class="pass" d="M525 502 L525 545"/>
+
+  <rect class="box" x="360" y="548" width="330" height="72"/>
+  <text class="text" x="525" y="578" text-anchor="middle">只读账号执行</text>
+  <text class="hint" x="525" y="603" text-anchor="middle">数据库权限做最终兜底</text>
+  <path class="edge" d="M690 584 L800 584"/>
+  <text class="hint" x="735" y="568">权限不足</text>
+  <rect class="reject" x="812" y="548" width="150" height="72"/>
+  <text class="text" x="887" y="591" text-anchor="middle">数据库拒绝</text>
+  <path class="pass" d="M525 622 L525 665"/>
+  <text class="hint" x="548" y="646">成功</text>
+
+  <rect class="ok" x="360" y="668" width="330" height="72"/>
+  <text class="text" x="525" y="698" text-anchor="middle">记录审计日志</text>
+  <text class="hint" x="525" y="723" text-anchor="middle">返回有限查询结果</text>
+</svg>

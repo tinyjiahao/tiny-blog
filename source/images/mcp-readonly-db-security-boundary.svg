@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
+  <title id="title">数据库 MCP 工具的安全边界层级</title>
+  <desc id="desc">从提示词约束到数据库账号权限，越靠后越接近真正的安全边界。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .step { fill: #ffffff; stroke: #0f766e; stroke-width: 2; rx: 14; }
+      .strong { fill: #ecfeff; stroke: #0e7490; stroke-width: 2.5; rx: 14; }
+      .title { font: 700 27px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .text { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .hint { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .edge { stroke: #0f766e; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="300"/>
+  <text class="title" x="480" y="54" text-anchor="middle">安全边界层级：越靠右越可靠</text>
+  <rect class="step" x="55" y="115" width="180" height="86"/>
+  <text class="text" x="145" y="153" text-anchor="middle">提示词约束</text>
+  <text class="hint" x="145" y="178" text-anchor="middle">影响模型行为</text>
+  <path class="edge" d="M240 158 L295 158"/>
+  <rect class="step" x="305" y="115" width="180" height="86"/>
+  <text class="text" x="395" y="153" text-anchor="middle">MCP 参数校验</text>
+  <text class="hint" x="395" y="178" text-anchor="middle">限制输入形态</text>
+  <path class="edge" d="M490 158 L545 158"/>
+  <rect class="step" x="555" y="115" width="180" height="86"/>
+  <text class="text" x="645" y="153" text-anchor="middle">Server 代码限制</text>
+  <text class="hint" x="645" y="178" text-anchor="middle">只读、LIMIT、超时</text>
+  <path class="edge" d="M740 158 L795 158"/>
+  <rect class="strong" x="805" y="115" width="120" height="86"/>
+  <text class="text" x="865" y="153" text-anchor="middle">数据库权限</text>
+  <text class="hint" x="865" y="178" text-anchor="middle">最终兜底</text>
+</svg>
