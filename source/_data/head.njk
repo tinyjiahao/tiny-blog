@@ -6,3 +6,35 @@
   "url": "https://blog.searchdiff.com"
 }
 </script>
+
+{%- if page.layout == 'post' %}
+{%- set post_image = page.image or page.cover %}
+<script type="application/ld+json">
+{{ {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": page.title,
+  "description": page.description or config.description,
+  "url": page.permalink,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": page.permalink
+  },
+  "datePublished": date_xml(page.date),
+  "dateModified": date_xml(page.updated or page.date),
+  "author": {
+    "@type": "Person",
+    "name": config.author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": config.title,
+    "logo": {
+      "@type": "ImageObject",
+      "url": full_url_for(theme.avatar.url)
+    }
+  },
+  "image": post_image and full_url_for(post_image)
+} | dump | safe }}
+</script>
+{%- endif %}
