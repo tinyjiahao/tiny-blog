@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="720" viewBox="0 0 1040 720" role="img" aria-labelledby="title desc">
+  <title id="title">MCP、Function Calling 与 RAG 在真实 AI 应用中的分层组合</title>
+  <desc id="desc">AI 应用和 Agent Host 位于上层，Function Calling、RAG 和 MCP 分别负责应用内动作、知识检索和外部能力标准化连接。</desc>
+  <defs>
+    <linearGradient id="host" x1="0" x2="1">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="fc" x1="0" x2="1">
+      <stop offset="0" stop-color="#ede9fe"/>
+      <stop offset="1" stop-color="#f5d0fe"/>
+    </linearGradient>
+    <linearGradient id="rag" x1="0" x2="1">
+      <stop offset="0" stop-color="#dcfce7"/>
+      <stop offset="1" stop-color="#ccfbf1"/>
+    </linearGradient>
+    <linearGradient id="mcp" x1="0" x2="1">
+      <stop offset="0" stop-color="#cffafe"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .layer-title { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .item { font: 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .tag { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
+      .card { stroke: #ffffff; stroke-width: 2; rx: 22; filter: url(#shadow); }
+      .muted { fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1040" height="720"/>
+  <text class="title" x="520" y="58" text-anchor="middle">真实 AI 应用里的三层组合</text>
+  <text class="subtitle" x="520" y="88" text-anchor="middle">RAG 负责知识，Function Calling 负责应用内动作，MCP 负责标准化连接外部世界</text>
+
+  <g transform="translate(110,125)">
+    <rect class="card" width="820" height="110" fill="url(#host)"/>
+    <rect x="30" y="28" width="118" height="38" rx="19" fill="#2563eb"/>
+    <text class="tag" x="89" y="53" text-anchor="middle">应用层</text>
+    <text class="layer-title" x="180" y="47">AI 应用 / Agent Host</text>
+    <text class="item" x="180" y="78">对话管理 · 模型调用 · 用户确认 · 工具调用展示</text>
+  </g>
+
+  <g transform="translate(110,265)">
+    <rect class="card" width="820" height="100" fill="url(#fc)"/>
+    <rect x="30" y="25" width="158" height="38" rx="19" fill="#7c3aed"/>
+    <text class="tag" x="109" y="50" text-anchor="middle">Function Calling</text>
+    <text class="layer-title" x="220" y="45">应用内固定函数</text>
+    <text class="item" x="220" y="75">调用后端 API · 执行轻量业务动作 · 参数 schema 校验</text>
+  </g>
+
+  <g transform="translate(110,395)">
+    <rect class="card" width="820" height="100" fill="url(#rag)"/>
+    <rect x="30" y="25" width="82" height="38" rx="19" fill="#16a34a"/>
+    <text class="tag" x="71" y="50" text-anchor="middle">RAG</text>
+    <text class="layer-title" x="145" y="45">外部知识检索</text>
+    <text class="item" x="145" y="75">文档检索 · 知识引用 · 指标口径 / 规范 / 手册</text>
+  </g>
+
+  <g transform="translate(110,525)">
+    <rect class="card" width="820" height="115" fill="url(#mcp)"/>
+    <rect x="30" y="30" width="88" height="38" rx="19" fill="#0891b2"/>
+    <text class="tag" x="74" y="55" text-anchor="middle">MCP</text>
+    <text class="layer-title" x="150" y="48">标准化连接外部能力</text>
+    <text class="item" x="150" y="80">Tools · Resources · Prompts</text>
+    <text class="item" x="150" y="106">连接数据库、Git、监控、工单、文件系统等外部系统</text>
+  </g>
+
+  <text class="subtitle" x="520" y="682" text-anchor="middle">三者不是互斥选项，而是放在不同层次协作</text>
+</svg>
