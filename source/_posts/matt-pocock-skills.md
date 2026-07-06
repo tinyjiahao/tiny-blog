@@ -21,7 +21,7 @@ tags:
 **本文脉络：**
 
 - 一、mattpocock-skills 提供了什么
-- 二、本地实现结构：它是怎么组织起来的
+- 二、skills结构：它是怎么组织起来的
 - 三、如何安装和初始化
 - 四、两类技能：用户主动调用与模型自动触发
 - 五、核心使用流程：从想法到交付
@@ -171,7 +171,7 @@ mattpocock-skills把技能分成两类：
 
 ## 五、核心使用流程：从想法到交付
 
-本地实现里，`ask-matt` 把主要工作流描述成一条 **idea → ship** 的路线。可以把它理解成这套 skills 的推荐用法：
+在这套skills里，`ask-matt` 把主要工作流描述成一条 **idea → ship** 的路线。可以把它理解成这套 skills 的推荐用法：
 
 ```text
 1. /ask-matt
@@ -215,7 +215,7 @@ mattpocock-skills把技能分成两类：
 
 ### 1. `ask-matt`：技能路由器
 
-本地实现里，`ask-matt` 是一个很关键但容易被忽略的 skill。
+在这套skills里，`ask-matt` 是一个很关键但容易被忽略的 skill。
 
 它不直接写代码，而是回答一个问题：
 
