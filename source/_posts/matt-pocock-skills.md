@@ -1,7 +1,7 @@
 ---
-title: Matt Pocock Skills：给真实工程师的 AI Agent 工作流
+title: MattPocock Skills：给真实工程师的 AI Agent 工作流
 date: 2026-07-06 09:30:00
-description: '「Matt Pocock Skills」—— 介绍 mattpocock/skills 这个面向真实工程工作的 AI Agent 技能仓库：它如何用 grill、domain modeling、TDD、diagnosing bugs、code review 等小而可组合的技能，修复 AI 编码代理常见的需求错位、上下文混乱、反馈不足和架构退化问题。'
+description: '「MattPocock Skills」—— 介绍 mattpocock/skills 这个面向真实工程工作的 AI Agent 技能仓库：它如何用 grill、domain modeling、TDD、diagnosing bugs、code review 等小而可组合的技能，修复 AI 编码代理常见的需求错位、上下文混乱、反馈不足和架构退化问题。'
 categories:
   - AI 工程
 tags:
