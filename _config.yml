@@ -109,8 +109,8 @@ deploy:
 sitemap:
   path: sitemap.xml
   rel: false
-  tags: true
-  categories: true
+  tags: false
+  categories: false
 
 # Search
 ## https://github.com/next-theme/hexo-generator-searchdb
