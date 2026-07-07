@@ -1,5 +1,5 @@
 ---
-title: Superpowers-skills：给编码 Agent 装上一套开发方法论
+title: Superpowers-skills：让 AI Agent 像工程师一样开发
 date: 2026-07-07 10:00:00
 description: '「Superpowers 实战解析」 —— 一套用 Skills 构建的开发方法论，让编码 Agent 从「你说一句它写一段」升级到「自动走完头脑风暴→设计→计划→TDD→代码审查→交付」的全流程。覆盖 14 个核心 Skills、7 步工作流、设计哲学与跨 Agent 工具适配。'
 cover: /images/superpowers-cover.png
@@ -13,7 +13,7 @@ tags:
   - 开发方法论
 ---
 
-![Superpowers-skills：给编码 Agent 装上一套开发方法论](/images/superpowers-cover.png)
+![Superpowers-skills：让 AI Agent 像工程师一样开发](/images/superpowers-cover.png)
 
 > **Superpowers** 是一套「装在编码 Agent 上的软件开发方法论」，由一组可组合的 Skills 构成。它解决的不是「让 Agent 写代码更快」，而是「让 Agent 像一个靠谱的工程师那样工作」——先想清楚需求、再设计方案、然后写测试、按计划实现、互相 review、最后干净交付。
 >
