@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Superpowers Skills 体系协作关系</title>
+  <desc id="desc">展示 Superpowers 中入口 Skill、主干 Skills 和配套 Skills 的协作关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfcf8"/>
+      <stop offset="1" stop-color="#edf7f5"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="620" fill="url(#bg)"/>
+  <text x="70" y="72" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#0f172a">从单个 Skill 到一套开发体系</text>
+  <text x="70" y="108" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#475569">Superpowers 的价值不在某个孤立技能，而在 Skills 之间的顺序、交接与验证闭环</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(70 165)">
+      <rect width="250" height="96" rx="18" fill="#0f172a"/>
+      <text x="26" y="40" font-size="19" font-weight="700" fill="#ffffff">using-superpowers</text>
+      <text x="26" y="70" font-size="15" fill="#cbd5e1">会话启动入口</text>
+    </g>
+    <g transform="translate(430 165)">
+      <rect width="250" height="96" rx="18" fill="#ffffff"/>
+      <text x="26" y="40" font-size="19" font-weight="700" fill="#0f172a">brainstorming</text>
+      <text x="26" y="70" font-size="15" fill="#475569">产出设计文档</text>
+    </g>
+    <g transform="translate(790 165)">
+      <rect width="250" height="96" rx="18" fill="#ffffff"/>
+      <text x="26" y="40" font-size="19" font-weight="700" fill="#0f172a">writing-plans</text>
+      <text x="26" y="70" font-size="15" fill="#475569">产出任务清单</text>
+    </g>
+
+    <g transform="translate(230 365)">
+      <rect width="300" height="104" rx="18" fill="#ffffff"/>
+      <text x="26" y="42" font-size="19" font-weight="700" fill="#0f172a">subagent-driven-development</text>
+      <text x="26" y="73" font-size="15" fill="#475569">按任务派发子 Agent 实现</text>
+    </g>
+    <g transform="translate(660 365)">
+      <rect width="260" height="104" rx="18" fill="#ffffff"/>
+      <text x="26" y="42" font-size="19" font-weight="700" fill="#0f172a">finishing branch</text>
+      <text x="26" y="73" font-size="15" fill="#475569">验证、合并、清理</text>
+    </g>
+  </g>
+
+  <path d="M 320 213 H 428" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 680 213 H 788" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 915 262 V 315 H 380 V 362" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 530 417 H 658" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <rect x="70" y="500" width="1060" height="88" rx="18" fill="#dff3ee" stroke="#99d1c6"/>
+    <text x="100" y="533" font-size="17" font-weight="700" fill="#0f172a">配套 Skills</text>
+    <text x="100" y="560" font-size="15" fill="#334155">
+      test-driven-development、systematic-debugging、verification-before-completion
+    </text>
+    <text x="100" y="582" font-size="15" fill="#334155">
+      requesting-code-review、receiving-code-review、using-git-worktrees
+    </text>
+  </g>
+</svg>

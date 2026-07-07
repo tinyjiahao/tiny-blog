@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Superpowers 七步开发工作流</title>
+  <desc id="desc">从头脑风暴、隔离工作区、写计划、子 Agent 实现、TDD、代码审查到收尾的完整流程。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fafc"/>
+      <stop offset="1" stop-color="#e9f2f7"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="70" y="78" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#0f172a">Superpowers 七步开发工作流</text>
+  <text x="70" y="114" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#475569">把模糊需求变成可验证、可审查、可交付的工程过程</text>
+
+  <path d="M 310 205 H 348" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 580 205 H 618" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 850 205 H 888" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 1010 270 V 344 H 195 V 438" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 310 500 H 438" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 690 500 H 808" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+
+  <g filter="url(#shadow)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <g transform="translate(70 150)">
+      <rect width="240" height="120" rx="18" fill="#ffffff"/>
+      <rect width="240" height="8" rx="4" fill="url(#accent)"/>
+      <text x="24" y="45" font-size="20" font-weight="700" fill="#0f172a">1. brainstorming</text>
+      <text x="24" y="77" font-size="15" fill="#475569">提问澄清需求</text>
+      <text x="24" y="102" font-size="15" fill="#475569">分块确认设计并落盘</text>
+    </g>
+    <g transform="translate(350 150)">
+      <rect width="230" height="120" rx="18" fill="#ffffff"/>
+      <rect width="230" height="8" rx="4" fill="#0f766e"/>
+      <text x="24" y="45" font-size="20" font-weight="700" fill="#0f172a">2. git worktrees</text>
+      <text x="24" y="77" font-size="15" fill="#475569">创建隔离工作区</text>
+      <text x="24" y="102" font-size="15" fill="#475569">确认测试基线干净</text>
+    </g>
+    <g transform="translate(620 150)">
+      <rect width="230" height="120" rx="18" fill="#ffffff"/>
+      <rect width="230" height="8" rx="4" fill="#2563eb"/>
+      <text x="24" y="45" font-size="20" font-weight="700" fill="#0f172a">3. writing-plans</text>
+      <text x="24" y="77" font-size="15" fill="#475569">拆成 2~5 分钟任务</text>
+      <text x="24" y="102" font-size="15" fill="#475569">写清路径、代码、验证</text>
+    </g>
+    <g transform="translate(890 150)">
+      <rect width="240" height="120" rx="18" fill="#ffffff"/>
+      <rect width="240" height="8" rx="4" fill="#7c3aed"/>
+      <text x="24" y="45" font-size="20" font-weight="700" fill="#0f172a">4. subagents</text>
+      <text x="24" y="77" font-size="15" fill="#475569">每个任务派新 Agent</text>
+      <text x="24" y="102" font-size="15" fill="#475569">规格审查 + 代码审查</text>
+    </g>
+    <g transform="translate(70 440)">
+      <rect width="250" height="130" rx="18" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#dc2626"/>
+      <text x="24" y="45" font-size="20" font-weight="700" fill="#0f172a">5. TDD</text>
+      <text x="24" y="77" font-size="15" fill="#475569">先红，再绿，再重构</text>
+      <text x="24" y="102" font-size="15" fill="#475569">测试先于实现</text>
+    </g>
+    <g transform="translate(440 440)">
+      <rect width="250" height="130" rx="18" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#ca8a04"/>
+      <text x="24" y="45" font-size="20" font-weight="700" fill="#0f172a">6. review</text>
+      <text x="24" y="77" font-size="15" fill="#475569">对照计划审查</text>
+      <text x="24" y="102" font-size="15" fill="#475569">严重问题阻塞推进</text>
+    </g>
+    <g transform="translate(810 440)">
+      <rect width="250" height="130" rx="18" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#0f172a"/>
+      <text x="24" y="45" font-size="18" font-weight="700" fill="#0f172a">7. finishing branch</text>
+      <text x="24" y="77" font-size="15" fill="#475569">验证测试并选择去向</text>
+      <text x="24" y="102" font-size="15" fill="#475569">合并 / PR / 保留 / 清理</text>
+    </g>
+  </g>
+</svg>
