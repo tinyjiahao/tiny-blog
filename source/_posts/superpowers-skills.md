@@ -357,4 +357,4 @@ Superpowers 的设计假设是「正经软件项目」。
 
 如果你正在用 Claude Code / Codex / Cursor 这类工具做正经开发，装上试一次完整流程，会真切感受到「Agent 从打字员变成工程师」的差别。
 
-> 项目地址：[github.com/obra/superpowers](https://github.com/obra/superpowers) · 作者：Jesse Vincent · [原始发布文章](https://blog.fsck.com/2025/10/09/superpowers/)
+> 项目地址：[github.com/obra/superpowers](https://github.com/obra/superpowers)
