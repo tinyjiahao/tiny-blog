@@ -1,7 +1,8 @@
 ---
-title: Superpowers：给编码 Agent 装上一套开发方法论
+title: Superpowers-skills：给编码 Agent 装上一套开发方法论
 date: 2026-07-07 10:00:00
 description: '「Superpowers 实战解析」 —— 一套用 Skills 构建的开发方法论，让编码 Agent 从「你说一句它写一段」升级到「自动走完头脑风暴→设计→计划→TDD→代码审查→交付」的全流程。覆盖 14 个核心 Skills、7 步工作流、设计哲学与跨 Agent 工具适配。'
+cover: /images/superpowers-cover.png
 categories:
   - AI 工程
 tags:
@@ -12,9 +13,11 @@ tags:
   - 开发方法论
 ---
 
+![Superpowers-skills：给编码 Agent 装上一套开发方法论](/images/superpowers-cover.png)
+
 > **Superpowers** 是一套「装在编码 Agent 上的软件开发方法论」，由一组可组合的 Skills 构成。它解决的不是「让 Agent 写代码更快」，而是「让 Agent 像一个靠谱的工程师那样工作」——先想清楚需求、再设计方案、然后写测试、按计划实现、互相 review、最后干净交付。
 >
-> 本文拆解它的 14 个核心 Skills、7 步工作流，以及它为什么能跨 Claude Code、Codex、Cursor、Antigravity 等十余种 Agent 工具运行。如果你已经读过本博客的「AI Agent 技能实战解析」，这篇是它的进阶——看一个真实、完整、生产级的 Skills 体系长什么样。
+> 本文拆解它的 14 个核心 Skills、7 步工作流，以及它为什么能跨 Claude Code、Codex、Cursor、Antigravity 等十种 Agent 工具运行。如果你已经读过本博客的「AI Agent 技能实战解析」，这篇是它的进阶——看一个真实、完整、生产级的 Skills 体系长什么样。
 
 ```
 本文脉络：
@@ -75,39 +78,7 @@ Agent：（不急着写代码）
 
 这是 Superpowers 的主干。一个完整的开发任务，会按这 7 步走：
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  ① brainstorming（头脑风暴）                                 │
-│     写代码前激活。通过提问把模糊想法变成清晰需求，            │
-│     分块呈现设计让你确认，最后落盘成设计文档                  │
-├─────────────────────────────────────────────────────────────┤
-│  ② using-git-worktrees（git 工作树隔离）                     │
-│     设计批准后激活。在新分支上创建隔离工作区，                │
-│     跑项目初始化、确认测试基线是干净的                        │
-├─────────────────────────────────────────────────────────────┤
-│  ③ writing-plans（写实现计划）                               │
-│     把工作拆成 2~5 分钟一个的小任务，                         │
-│     每个任务都有精确文件路径、完整代码、验证步骤              │
-├─────────────────────────────────────────────────────────────┤
-│  ④ subagent-driven-development（子 Agent 驱动开发）          │
-│     每个任务派一个全新子 Agent 实现，                        │
-│     两阶段 review：先查是否符合规格，再查代码质量             │
-│     （也可以用 executing-plans：人工检查点批执行）            │
-├─────────────────────────────────────────────────────────────┤
-│  ⑤ test-driven-development（测试驱动）                       │
-│     实现期间强制 RED-GREEN-REFACTOR：                         │
-│     写失败的测试 → 看它失败 → 写最小实现 → 看它通过 → 提交    │
-│     先于测试写的代码会被删掉                                  │
-├─────────────────────────────────────────────────────────────┤
-│  ⑥ requesting-code-review（代码审查）                        │
-│     任务之间激活，对照计划检查，按严重程度报告问题            │
-│     严重问题会阻塞后续进展                                    │
-├─────────────────────────────────────────────────────────────┤
-│  ⑦ finishing-a-development-branch（收尾）                    │
-│     所有任务完成后激活。验证测试，                            │
-│     给出选项（合并 / PR / 保留 / 丢弃），清理 worktree        │
-└─────────────────────────────────────────────────────────────┘
-```
+![Superpowers 七步开发工作流](/images/superpowers-workflow.svg)
 
 **为什么强调「2~5 分钟一个任务」**：子 Agent 的上下文有限，任务太大会跑偏、会漏边界条件。切成小块，每个子 Agent 聚焦一件事，做完被 review，问题能在早期暴露。
 
@@ -117,7 +88,7 @@ Agent：（不急着写代码）
 
 ## 三、14 个 Skills 全景：按职责分类
 
-Superpowers 内置 14 个 Skills，按职责分成五类：
+Superpowers 内置 14 个 Skills，按职责分成四类：
 
 ### 测试类
 
@@ -232,11 +203,14 @@ hooks/session-start 的核心逻辑（简化）：
            下面是 using-superpowers 技能的全文……
            </EXTREMELY_IMPORTANT>"
 
-  # 输出给 Agent 作为开场上下文
-  echo "$context"
+  # 按不同平台输出对应 JSON 字段
+  # Cursor: additional_context
+  # Claude Code: hookSpecificOutput.additionalContext
+  # Copilot CLI / 其他平台: additionalContext
+  printf '{ "additionalContext": "%s" }' "$context"
 ```
 
-**这个设计的巧妙之处**：它不依赖你「记得用 Superpowers」，而是**让 Agent 一启动就处于 Superpowers 模式**。这就是 README 里说的「Your coding agent just has Superpowers」——你不需要做任何特殊操作，方法论自动生效。
+真实实现会根据运行平台输出不同的 JSON 字段，避免同一段上下文被重复注入。这个设计的巧妙之处在于：它不依赖你「记得用 Superpowers」，而是**让 Agent 一启动就处于 Superpowers 模式**。这就是 README 里说的「Your coding agent just has Superpowers」——你不需要做任何特殊操作，方法论自动生效。
 
 ```
 对比两种「让方法论生效」的方式：
@@ -256,7 +230,7 @@ hooks/session-start 的核心逻辑（简化）：
 
 ## 六、跨 Agent 适配：一份 Skills，十种工具
 
-Superpowers 支持的 Agent 工具多得有点夸张：
+Superpowers 基本上支持当前主流的 Agent 工具：
 
 ```
 Claude Code、Codex App、Codex CLI、Cursor、Antigravity、
@@ -307,42 +281,16 @@ OpenCode：自己的 plugin install 机制
 
 ## 七、和单兵 Skill 的区别：为什么是「体系」
 
-本博客之前的「AI Agent 技能实战解析」讲的是**怎么写一个独立的 Skill**。Superpowers 给出的进阶认知是：**单个 Skill 的价值有限，Skills 组成体系才能质变**。
+本博客之前的「AI Agent 技能实战解析」讲的是**怎么写一个独立的 Skill**。Superpowers 给出的进阶认知是：**单个 Skill 解决一类任务，Skills 体系固化一整套工作方法**。
 
-```
-单个 Skill（如 tech-writer）：
-  解决一类任务（写技术文章）
-  独立触发，互不关联
-  适合：单一场景的效率工具
+| 形态 | 适合解决什么 | 关键特征 |
+|------|--------------|----------|
+| 单个 Skill | 反复出现的单一任务，比如写技术文章、生成提交信息、做一次代码审查 | 独立触发，边界清楚，成本低 |
+| Skills 体系 | 一个完整领域里的长期工作方式，比如软件开发全流程 | 有入口、有顺序、有交接、有验证闭环 |
 
-Skills 体系（如 Superpowers）：
-  覆盖一个完整领域（软件开发全流程）
-  Skills 之间有调用关系、有顺序、有交接
-  适合：把一套方法论固化下来
-```
+![Superpowers Skills 体系协作关系](/images/superpowers-skills-system.svg)
 
-```
-Superpowers 里 Skills 是怎么协作的：
-
-  brainstorming（设计阶段）
-    → 产出设计文档，交给 writing-plans
-  writing-plans（计划阶段）
-    → 读设计文档，产出任务清单，交给 subagent-driven-development
-  subagent-driven-development（实现阶段）
-    → 每个任务派子 Agent，过程中触发 test-driven-development
-    → 任务间触发 requesting-code-review
-    → 全部完成触发 finishing-a-development-branch
-
-  → Skills 不是孤立工具，是一条流水线
-```
-
-**判断你要的是「单兵 Skill」还是「Skills 体系」**：
-
-| 你的需求 | 该用什么 |
-|---------|---------|
-| 反复做某一类事（写文章、生成 commit） | 单个 Skill |
-| 想让 Agent 在某个完整领域里像专家一样工作 | Skills 体系（参考 Superpowers 的结构）|
-| 想固化团队的开发流程/规范 | Skills 体系（流程节点都做成 Skill）|
+判断标准很简单：如果你只是想让 Agent 在一个动作上更稳定，用单个 Skill 就够；如果你想让 Agent 在一个领域里持续按专家流程工作，就应该像 Superpowers 一样，把流程节点都拆成 Skills，再用入口 Skill 串起来。
 
 ---
 
