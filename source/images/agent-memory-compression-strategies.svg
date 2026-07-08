@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">压缩工作记忆的三种策略</title>
+  <desc id="desc">截断、摘要、滑动窗口加关键信息钉住三种上下文压缩策略。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfcff"/>
+      <stop offset="1" stop-color="#eef6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="680" fill="url(#bg)"/>
+  <text x="72" y="78" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="35" font-weight="700" fill="#0f172a">压缩工作记忆的三种策略</text>
+  <text x="72" y="114" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" fill="#475569">上下文窗口不是越满越好，关键是提高信息密度</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(72 178)">
+      <rect width="330" height="350" rx="22" fill="#ffffff"/>
+      <rect width="330" height="10" rx="5" fill="#dc2626"/>
+      <text x="28" y="58" font-size="25" font-weight="700" fill="#0f172a">1. 截断</text>
+      <text x="28" y="96" font-size="16" fill="#475569">只保留最近 N 轮对话，旧内容直接丢弃。</text>
+      <text x="28" y="150" font-size="17" font-weight="700" fill="#1e293b">优点</text>
+      <text x="28" y="180" font-size="16" fill="#475569">实现简单，成本最低。</text>
+      <text x="28" y="236" font-size="17" font-weight="700" fill="#1e293b">缺点</text>
+      <text x="28" y="266" font-size="16" fill="#475569">可能丢掉早期关键约束，</text>
+      <text x="28" y="294" font-size="16" fill="#475569">例如技术栈和用户偏好。</text>
+    </g>
+    <g transform="translate(435 178)">
+      <rect width="330" height="350" rx="22" fill="#ffffff"/>
+      <rect width="330" height="10" rx="5" fill="#2563eb"/>
+      <text x="28" y="58" font-size="25" font-weight="700" fill="#0f172a">2. 摘要</text>
+      <text x="28" y="96" font-size="16" fill="#475569">把旧对话压缩成高密度摘要，保留决策。</text>
+      <text x="28" y="150" font-size="17" font-weight="700" fill="#1e293b">优点</text>
+      <text x="28" y="180" font-size="16" fill="#475569">信息密度高，是主流方案。</text>
+      <text x="28" y="236" font-size="17" font-weight="700" fill="#1e293b">缺点</text>
+      <text x="28" y="266" font-size="16" fill="#475569">摘要会损失细节，</text>
+      <text x="28" y="294" font-size="16" fill="#475569">还需要额外 LLM 调用。</text>
+    </g>
+    <g transform="translate(798 178)">
+      <rect width="330" height="350" rx="22" fill="#ffffff"/>
+      <rect width="330" height="10" rx="5" fill="#0f766e"/>
+      <text x="28" y="58" font-size="25" font-weight="700" fill="#0f172a">3. 滑窗 + 钉住</text>
+      <text x="28" y="96" font-size="16" fill="#475569">近期原文保留，旧内容摘要，关键信息常驻。</text>
+      <text x="28" y="150" font-size="17" font-weight="700" fill="#1e293b">优点</text>
+      <text x="28" y="180" font-size="16" fill="#475569">兼顾近期细节和长期约束。</text>
+      <text x="28" y="236" font-size="17" font-weight="700" fill="#1e293b">难点</text>
+      <text x="28" y="266" font-size="16" fill="#475569">要定义什么是关键信息，</text>
+      <text x="28" y="294" font-size="16" fill="#475569">并处理过时和冲突。</text>
+    </g>
+  </g>
+
+  <rect x="72" y="580" width="1056" height="52" rx="16" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="102" y="613" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#1e3a8a">实践建议：工作记忆应该“精”，不是“多”；能按需检索的内容，不要长期塞在窗口里。</text>
+</svg>

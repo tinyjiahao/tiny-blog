@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">AI Agent 的三类记忆</title>
+  <desc id="desc">工作记忆、情景记忆、程序性记忆在 Agent 系统中的对应关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eef7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="680" fill="url(#bg)"/>
+  <text x="72" y="78" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" font-weight="700" fill="#0f172a">AI Agent 的三类记忆</text>
+  <text x="72" y="114" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" fill="#475569">借用认知心理学框架，把 Agent 的记忆拆成三套不同机制</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(72 180)">
+      <rect width="320" height="340" rx="22" fill="#ffffff"/>
+      <rect width="320" height="10" rx="5" fill="#2563eb"/>
+      <text x="28" y="58" font-size="25" font-weight="700" fill="#0f172a">工作记忆</text>
+      <text x="28" y="92" font-size="17" fill="#64748b">Working Memory</text>
+      <line x1="28" y1="120" x2="292" y2="120" stroke="#e2e8f0"/>
+      <text x="28" y="158" font-size="17" font-weight="700" fill="#1e293b">人类对应</text>
+      <text x="28" y="188" font-size="16" fill="#475569">此刻脑子里活跃的信息</text>
+      <text x="28" y="232" font-size="17" font-weight="700" fill="#1e293b">Agent 对应</text>
+      <text x="28" y="262" font-size="16" fill="#475569">上下文窗口 context window</text>
+      <text x="28" y="306" font-size="17" font-weight="700" fill="#1e293b">特点</text>
+      <text x="28" y="336" font-size="16" fill="#475569">容量小、立即可用、用完就清</text>
+    </g>
+    <g transform="translate(440 180)">
+      <rect width="320" height="340" rx="22" fill="#ffffff"/>
+      <rect width="320" height="10" rx="5" fill="#0f766e"/>
+      <text x="28" y="58" font-size="25" font-weight="700" fill="#0f172a">情景记忆</text>
+      <text x="28" y="92" font-size="17" fill="#64748b">Episodic Memory</text>
+      <line x1="28" y1="120" x2="292" y2="120" stroke="#e2e8f0"/>
+      <text x="28" y="158" font-size="17" font-weight="700" fill="#1e293b">人类对应</text>
+      <text x="28" y="188" font-size="16" fill="#475569">具体经历过的事件</text>
+      <text x="28" y="232" font-size="17" font-weight="700" fill="#1e293b">Agent 对应</text>
+      <text x="28" y="262" font-size="16" fill="#475569">会话历史、跨会话记忆、用户画像</text>
+      <text x="28" y="306" font-size="17" font-weight="700" fill="#1e293b">特点</text>
+      <text x="28" y="336" font-size="16" fill="#475569">有时空标签、按需回忆、会衰减</text>
+    </g>
+    <g transform="translate(808 180)">
+      <rect width="320" height="340" rx="22" fill="#ffffff"/>
+      <rect width="320" height="10" rx="5" fill="#7c3aed"/>
+      <text x="28" y="58" font-size="25" font-weight="700" fill="#0f172a">程序性记忆</text>
+      <text x="28" y="92" font-size="17" fill="#64748b">Procedural Memory</text>
+      <line x1="28" y1="120" x2="292" y2="120" stroke="#e2e8f0"/>
+      <text x="28" y="158" font-size="17" font-weight="700" fill="#1e293b">人类对应</text>
+      <text x="28" y="188" font-size="16" fill="#475569">怎么做某类事</text>
+      <text x="28" y="232" font-size="17" font-weight="700" fill="#1e293b">Agent 对应</text>
+      <text x="28" y="262" font-size="16" fill="#475569">Skills、知识库、操作手册</text>
+      <text x="28" y="306" font-size="17" font-weight="700" fill="#1e293b">特点</text>
+      <text x="28" y="336" font-size="16" fill="#475569">结构化、稳定复用、场景无关</text>
+    </g>
+  </g>
+
+  <text x="72" y="604" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" fill="#334155">诊断记忆问题时，先分清类型：容量问题、历史存取问题、还是做事流程缺失。</text>
+</svg>

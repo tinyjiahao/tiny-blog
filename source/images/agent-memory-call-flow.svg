@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">三类记忆协同的一次 Agent 调用</title>
+  <desc id="desc">用户指令、程序性记忆、情景记忆共同进入工作记忆并驱动输出。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="72" y="76" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#0f172a">三类记忆协同的一次 Agent 调用</text>
+  <text x="72" y="112" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" fill="#475569">工作记忆是舞台，程序性记忆和情景记忆都要按需登场</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(80 175)">
+      <rect width="250" height="110" rx="20" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#334155"/>
+      <text x="24" y="48" font-size="20" font-weight="700" fill="#0f172a">用户指令</text>
+      <text x="24" y="80" font-size="15" fill="#475569">把昨天那篇文章改成公众号模式</text>
+    </g>
+    <g transform="translate(475 150)">
+      <rect width="250" height="110" rx="20" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#7c3aed"/>
+      <text x="24" y="48" font-size="20" font-weight="700" fill="#0f172a">程序性记忆</text>
+      <text x="24" y="80" font-size="15" fill="#475569">触发 tech-writer Skill</text>
+    </g>
+    <g transform="translate(475 330)">
+      <rect width="250" height="110" rx="20" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#0f766e"/>
+      <text x="24" y="48" font-size="20" font-weight="700" fill="#0f172a">情景记忆</text>
+      <text x="24" y="80" font-size="15" fill="#475569">检索历史，读取文章原文</text>
+    </g>
+    <g transform="translate(850 210)">
+      <rect width="270" height="190" rx="24" fill="#0f172a"/>
+      <text x="28" y="50" font-size="22" font-weight="700" fill="#ffffff">工作记忆</text>
+      <text x="28" y="84" font-size="15" fill="#cbd5e1">system prompt</text>
+      <text x="28" y="112" font-size="15" fill="#cbd5e1">Skill 正文</text>
+      <text x="28" y="140" font-size="15" fill="#cbd5e1">历史 / 文件内容</text>
+      <text x="28" y="168" font-size="15" fill="#cbd5e1">最新用户指令</text>
+    </g>
+    <g transform="translate(850 505)">
+      <rect width="270" height="92" rx="22" fill="#ffffff"/>
+      <rect width="270" height="8" rx="4" fill="#2563eb"/>
+      <text x="28" y="48" font-size="20" font-weight="700" fill="#0f172a">生成输出并写文件</text>
+      <text x="28" y="75" font-size="15" fill="#475569">本次交互沉淀为新的情景记忆</text>
+    </g>
+  </g>
+
+  <path d="M 330 230 H 473" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 725 205 H 848" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 725 385 H 785 V 334 H 848" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 985 400 V 503" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 600 260 V 328" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none" stroke-dasharray="7 7"/>
+</svg>
