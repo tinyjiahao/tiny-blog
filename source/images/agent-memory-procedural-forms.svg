@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">程序性记忆的两种形态</title>
+  <desc id="desc">Skills 和知识库分别作为主动与被动程序性记忆。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#f6f3ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="620" fill="url(#bg)"/>
+  <text x="72" y="78" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="35" font-weight="700" fill="#0f172a">程序性记忆的两种形态</text>
+  <text x="72" y="114" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" fill="#475569">一种告诉 Agent 怎么做，一种提供领域事实和规范</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(100 175)">
+      <rect width="440" height="310" rx="24" fill="#ffffff"/>
+      <rect width="440" height="10" rx="5" fill="#7c3aed"/>
+      <text x="32" y="62" font-size="27" font-weight="700" fill="#0f172a">Skills</text>
+      <text x="32" y="98" font-size="18" fill="#64748b">主动的程序性记忆</text>
+      <line x1="32" y1="126" x2="408" y2="126" stroke="#e2e8f0"/>
+      <text x="32" y="166" font-size="17" fill="#475569">描述“怎么做”：流程、规则、示例。</text>
+      <text x="32" y="204" font-size="17" fill="#475569">形式：SKILL.md + references。</text>
+      <text x="32" y="242" font-size="17" fill="#475569">触发：按需自动加载。</text>
+      <text x="32" y="280" font-size="17" fill="#475569">类比：会骑车后，一上车就会。</text>
+    </g>
+    <g transform="translate(660 175)">
+      <rect width="440" height="310" rx="24" fill="#ffffff"/>
+      <rect width="440" height="10" rx="5" fill="#0f766e"/>
+      <text x="32" y="62" font-size="27" font-weight="700" fill="#0f172a">知识库</text>
+      <text x="32" y="98" font-size="18" fill="#64748b">被动的程序性记忆</text>
+      <line x1="32" y1="126" x2="408" y2="126" stroke="#e2e8f0"/>
+      <text x="32" y="166" font-size="17" fill="#475569">描述“知道什么”：事实、术语、规范。</text>
+      <text x="32" y="204" font-size="17" fill="#475569">形式：文档 + 向量索引。</text>
+      <text x="32" y="242" font-size="17" fill="#475569">触发：检索增强 RAG。</text>
+      <text x="32" y="280" font-size="17" fill="#475569">类比：查字典、翻手册。</text>
+    </g>
+  </g>
+  <text x="100" y="555" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" fill="#334155">关键点：程序性记忆不应该全文常驻上下文，而应该按任务触发后调入工作记忆。</text>
+</svg>
