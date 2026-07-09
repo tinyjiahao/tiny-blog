@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 推理模式全景</title>
+  <desc id="desc">展示直接生成、CoT、ToT、ReAct、Plan-and-Execute 和 Reflexion 的关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="arrow-soft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title { fill: #f8fafc; font: 700 32px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .p { fill: #cbd5e1; font: 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .h { fill: #f8fafc; font: 700 21px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .box { fill: rgba(15, 23, 42, .82); stroke: #38bdf8; stroke-width: 2; rx: 18; }
+      .accent { stroke: #f59e0b; }
+      .arrow { stroke: #7dd3fc; stroke-width: 3; fill: none; marker-end: url(#arrow-blue); }
+      .thin { stroke: #64748b; stroke-width: 2.4; fill: none; marker-end: url(#arrow-soft); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" class="title">Agent 推理模式全景</text>
+  <text x="60" y="105" class="p">越往右，越像一个能规划、能调工具、能从失败中修正的工程化 Agent。</text>
+
+  <rect x="75" y="255" width="150" height="110" class="box"/>
+  <text x="107" y="296" class="h">直接生成</text>
+  <text x="105" y="328" class="p">一次出答案</text>
+  <text x="105" y="352" class="p">适合简单问题</text>
+
+  <path d="M225 310 H285" class="arrow"/>
+  <rect x="295" y="255" width="150" height="110" class="box"/>
+  <text x="343" y="296" class="h">CoT</text>
+  <text x="325" y="328" class="p">显式步骤</text>
+  <text x="325" y="352" class="p">打草稿</text>
+
+  <rect x="560" y="170" width="165" height="100" class="box accent"/>
+  <text x="605" y="211" class="h">ToT</text>
+  <text x="590" y="243" class="p">分叉探索</text>
+
+  <rect x="560" y="350" width="165" height="100" class="box accent"/>
+  <text x="598" y="391" class="h">ReAct</text>
+  <text x="590" y="423" class="p">思考 + 行动</text>
+
+  <path d="M445 310 C490 310 500 220 550 220" class="arrow"/>
+  <path d="M445 310 C490 310 500 400 550 400" class="arrow"/>
+
+  <rect x="815" y="345" width="240" height="110" class="box"/>
+  <text x="843" y="386" class="h">Plan-and-Execute</text>
+  <text x="865" y="418" class="p">先规划，再执行</text>
+  <text x="865" y="442" class="p">执行项可含 ReAct</text>
+  <path d="M725 400 H805" class="arrow"/>
+
+  <rect x="1090" y="345" width="85" height="110" class="box accent"/>
+  <text x="1102" y="386" class="h">反思</text>
+  <text x="1102" y="418" class="p">失败</text>
+  <text x="1102" y="442" class="p">再试</text>
+  <path d="M1055 400 H1080" class="arrow"/>
+
+  <path d="M1132 462 C1040 548 830 552 655 460" class="thin"/>
+  <text x="770" y="555" class="p">反思结果回写到下一轮计划或执行上下文</text>
+</svg>

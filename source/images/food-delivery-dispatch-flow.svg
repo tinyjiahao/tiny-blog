@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">外卖订单分发 30 秒调度流程</title>
+  <desc id="desc">每 30 秒一轮，按分区锁、订单拉取、骑手候选、算法调用、结果写回和推送执行。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="70" y="72" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#0f172a">30 秒订单分发调度流程</text>
+  <text x="70" y="108" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#475569">周期兜底刷新未分配订单，分区并行调用算法</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(70 160)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#2563eb"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">1. 切分任务</text>
+      <text x="22" y="76" font-size="15" fill="#475569">按城市 / cell 扫描</text>
+      <text x="22" y="99" font-size="15" fill="#475569">生成 30s 轮次任务</text>
+    </g>
+    <g transform="translate(350 160)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#0f766e"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">2. 领取分区锁</text>
+      <text x="22" y="76" font-size="15" fill="#475569">同一 cell 单 worker</text>
+      <text x="22" y="99" font-size="15" fill="#475569">锁带 TTL</text>
+    </g>
+    <g transform="translate(630 160)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#7c3aed"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">3. 拉取订单</text>
+      <text x="22" y="76" font-size="15" fill="#475569">未分配订单池</text>
+      <text x="22" y="99" font-size="15" fill="#475569">按时间 / 优先级取批次</text>
+    </g>
+    <g transform="translate(910 160)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#ca8a04"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">4. 查询骑手</text>
+      <text x="22" y="76" font-size="15" fill="#475569">扩展周边 cell</text>
+      <text x="22" y="99" font-size="15" fill="#475569">过滤离线 / 满载 / 过期</text>
+    </g>
+    <g transform="translate(210 440)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#dc2626"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">5. 调用算法</text>
+      <text x="22" y="76" font-size="15" fill="#475569">输入订单 + 骑手</text>
+      <text x="22" y="99" font-size="15" fill="#475569">输出匹配结果</text>
+    </g>
+    <g transform="translate(490 440)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#0f172a"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">6. 写入结果</text>
+      <text x="22" y="76" font-size="15" fill="#475569">订单状态 CAS</text>
+      <text x="22" y="99" font-size="15" fill="#475569">骑手容量扣减</text>
+    </g>
+    <g transform="translate(770 440)">
+      <rect width="235" height="112" rx="18" fill="#ffffff"/>
+      <rect width="235" height="8" rx="4" fill="#16a34a"/>
+      <text x="22" y="45" font-size="19" font-weight="700" fill="#0f172a">7. 推送与记录</text>
+      <text x="22" y="76" font-size="15" fill="#475569">推送骑手</text>
+      <text x="22" y="99" font-size="15" fill="#475569">写分发日志</text>
+    </g>
+  </g>
+
+  <path d="M 305 216 H 348" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 585 216 H 628" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 865 216 H 908" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 1030 272 V 350 H 328 V 438" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 445 496 H 488" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 725 496 H 768" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+
+  <rect x="70" y="625" width="1065" height="54" rx="16" fill="#dcfce7" stroke="#86efac"/>
+  <text x="100" y="659" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#14532d">每个 cell 独立调度，所有 cell 并行执行，才能把 30 秒刷新要求落到工程上。</text>
+</svg>

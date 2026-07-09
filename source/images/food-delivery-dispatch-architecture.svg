@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">外卖订单分发系统整体架构</title>
+  <desc id="desc">订单流、骑手位置流、热数据索引、分区调度和分配执行层的架构图。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eef7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="70" y="72" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#0f172a">外卖订单分发系统整体架构</text>
+  <text x="70" y="108" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#475569">算法已有，系统重点是候选集构造、分区调度和结果写回</text>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <g transform="translate(70 165)">
+      <rect width="245" height="112" rx="18" fill="#ffffff"/>
+      <rect width="245" height="8" rx="4" fill="#2563eb"/>
+      <text x="24" y="46" font-size="20" font-weight="700" fill="#0f172a">订单接入</text>
+      <text x="24" y="76" font-size="15" fill="#475569">1000 QPS 新订单</text>
+      <text x="24" y="99" font-size="15" fill="#475569">取消 / 状态变更</text>
+    </g>
+    <g transform="translate(70 405)">
+      <rect width="245" height="112" rx="18" fill="#ffffff"/>
+      <rect width="245" height="8" rx="4" fill="#0f766e"/>
+      <text x="24" y="46" font-size="20" font-weight="700" fill="#0f172a">骑手位置接入</text>
+      <text x="24" y="76" font-size="15" fill="#475569">300 万骑手</text>
+      <text x="24" y="99" font-size="15" fill="#475569">平均 30 万 QPS</text>
+    </g>
+    <g transform="translate(455 150)">
+      <rect width="300" height="148" rx="20" fill="#ffffff"/>
+      <rect width="300" height="8" rx="4" fill="#7c3aed"/>
+      <text x="26" y="48" font-size="21" font-weight="700" fill="#0f172a">热数据索引层</text>
+      <text x="26" y="82" font-size="15" fill="#475569">未分配订单池</text>
+      <text x="26" y="110" font-size="15" fill="#475569">骑手实时位置索引</text>
+      <text x="26" y="138" font-size="15" fill="#475569">按城市 / 网格分片</text>
+    </g>
+    <g transform="translate(455 395)">
+      <rect width="300" height="148" rx="20" fill="#ffffff"/>
+      <rect width="300" height="8" rx="4" fill="#ca8a04"/>
+      <text x="26" y="48" font-size="21" font-weight="700" fill="#0f172a">分区调度层</text>
+      <text x="26" y="82" font-size="15" fill="#475569">每 30s 扫描未分配订单</text>
+      <text x="26" y="110" font-size="15" fill="#475569">按 cell 构造批次</text>
+      <text x="26" y="138" font-size="15" fill="#475569">生成算法输入</text>
+    </g>
+    <g transform="translate(885 205)">
+      <rect width="250" height="126" rx="20" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#dc2626"/>
+      <text x="24" y="48" font-size="21" font-weight="700" fill="#0f172a">分配算法服务</text>
+      <text x="24" y="80" font-size="15" fill="#475569">输入：订单批次 + 骑手批次</text>
+      <text x="24" y="106" font-size="15" fill="#475569">输出：订单 → 骑手</text>
+    </g>
+    <g transform="translate(885 430)">
+      <rect width="250" height="126" rx="20" fill="#ffffff"/>
+      <rect width="250" height="8" rx="4" fill="#0f172a"/>
+      <text x="24" y="48" font-size="21" font-weight="700" fill="#0f172a">结果写回与推送</text>
+      <text x="24" y="80" font-size="15" fill="#475569">订单状态 CAS</text>
+      <text x="24" y="106" font-size="15" fill="#475569">推送骑手 + 记录日志</text>
+    </g>
+  </g>
+
+  <path d="M 315 220 H 453" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 315 460 H 453" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 605 298 V 393" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 755 470 H 830 V 268 H 883" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 1010 331 V 428" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+  <path d="M 885 493 H 812 V 205 H 757" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#arrow)" fill="none"/>
+
+  <rect x="70" y="620" width="1065" height="54" rx="16" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="100" y="654" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#1e3a8a">核心思路：订单和骑手都先进入地理索引，调度器按区域批量调用算法，结果用状态机写回。</text>
+</svg>
