@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="720" viewBox="0 0 1180 720" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 推理模式选型</title>
+  <desc id="desc">展示如何根据任务复杂度、是否需要工具、是否需要多路径探索和是否可重试选择推理模式。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#93c5fd"/>
+    </marker>
+    <style>
+      .title { fill: #f8fafc; font: 700 32px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .q { fill: rgba(15, 23, 42, .84); stroke: #93c5fd; stroke-width: 2; rx: 18; }
+      .a { fill: rgba(20, 83, 45, .84); stroke: #86efac; stroke-width: 2; rx: 18; }
+      .b { fill: rgba(146, 64, 14, .84); stroke: #fbbf24; stroke-width: 2; rx: 18; }
+      .h { fill: #f8fafc; font: 700 21px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .p { fill: #cbd5e1; font: 15px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .line { stroke: #93c5fd; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .note { fill: #fde68a; font: 15px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    </style>
+  </defs>
+  <rect width="1180" height="720" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" class="title">推理模式选型：先判断任务性质</text>
+
+  <rect x="465" y="115" width="250" height="82" class="q"/>
+  <text x="510" y="150" class="h">任务需要思考吗？</text>
+  <text x="503" y="176" class="p">多步推理、计算、拆解才需要</text>
+
+  <rect x="90" y="260" width="210" height="82" class="a"/>
+  <text x="132" y="294" class="h">直接生成</text>
+  <text x="125" y="320" class="p">简单事实或创意生成</text>
+  <path d="M465 156 C365 156 245 215 195 250" class="line"/>
+  <text x="335" y="205" class="note">否</text>
+
+  <rect x="465" y="260" width="250" height="82" class="q"/>
+  <text x="505" y="294" class="h">需要工具或资料吗？</text>
+  <text x="510" y="320" class="p">搜索、数据库、文件、API</text>
+  <path d="M590 197 V250" class="line"/>
+  <text x="610" y="230" class="note">是</text>
+
+  <rect x="820" y="245" width="240" height="112" class="a"/>
+  <text x="872" y="285" class="h">ReAct / Plan</text>
+  <text x="858" y="313" class="p">单步工具任务用 ReAct</text>
+  <text x="858" y="337" class="p">复杂多步任务先规划</text>
+  <path d="M715 301 H810" class="line"/>
+  <text x="755" y="286" class="note">是</text>
+
+  <rect x="465" y="420" width="250" height="82" class="q"/>
+  <text x="498" y="454" class="h">要探索多条路吗？</text>
+  <text x="512" y="480" class="p">如解谜、规划、搜索空间</text>
+  <path d="M590 342 V410" class="line"/>
+  <text x="610" y="382" class="note">否</text>
+
+  <rect x="820" y="405" width="210" height="82" class="a"/>
+  <text x="895" y="439" class="h">ToT</text>
+  <text x="862" y="465" class="p">多候选、评分、回退</text>
+  <path d="M715 461 H810" class="line"/>
+  <text x="755" y="445" class="note">是</text>
+
+  <rect x="315" y="560" width="210" height="82" class="a"/>
+  <text x="382" y="594" class="h">CoT</text>
+  <text x="355" y="620" class="p">线性分步推理足够</text>
+  <path d="M545 502 C505 532 465 548 420 552" class="line"/>
+  <text x="500" y="540" class="note">否</text>
+
+  <rect x="655" y="560" width="260" height="82" class="b"/>
+  <text x="725" y="594" class="h">叠加 Reflexion</text>
+  <text x="696" y="620" class="p">可重试且能判断成败时使用</text>
+  <path d="M635 502 C680 532 725 548 780 552" class="line"/>
+  <text x="630" y="540" class="note">可重试</text>
+</svg>

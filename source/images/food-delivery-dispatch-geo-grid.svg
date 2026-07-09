@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">外卖订单分发的地理网格候选集构造</title>
+  <desc id="desc">订单所在网格与周边网格骑手共同构成分配算法的候选输入。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfcff"/>
+      <stop offset="1" stop-color="#eef7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="680" fill="url(#bg)"/>
+  <text x="72" y="72" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#0f172a">地理网格候选集构造</text>
+  <text x="72" y="108" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" fill="#475569">把经纬度范围变成可并行处理的 cell 批次</text>
+
+  <g transform="translate(90 160)" font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" filter="url(#shadow)">
+    <rect x="0" y="0" width="520" height="420" rx="24" fill="#ffffff"/>
+    <g transform="translate(55 45)">
+      <rect x="0" y="0" width="110" height="88" fill="#eef2ff" stroke="#c7d2fe"/>
+      <rect x="110" y="0" width="110" height="88" fill="#eef2ff" stroke="#c7d2fe"/>
+      <rect x="220" y="0" width="110" height="88" fill="#eef2ff" stroke="#c7d2fe"/>
+      <rect x="330" y="0" width="110" height="88" fill="#eef2ff" stroke="#c7d2fe"/>
+      <rect x="0" y="88" width="110" height="88" fill="#ecfdf5" stroke="#bbf7d0"/>
+      <rect x="110" y="88" width="110" height="88" fill="#dcfce7" stroke="#86efac"/>
+      <rect x="220" y="88" width="110" height="88" fill="#dcfce7" stroke="#86efac"/>
+      <rect x="330" y="88" width="110" height="88" fill="#ecfdf5" stroke="#bbf7d0"/>
+      <rect x="0" y="176" width="110" height="88" fill="#ecfdf5" stroke="#bbf7d0"/>
+      <rect x="110" y="176" width="110" height="88" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+      <rect x="220" y="176" width="110" height="88" fill="#dcfce7" stroke="#86efac"/>
+      <rect x="330" y="176" width="110" height="88" fill="#ecfdf5" stroke="#bbf7d0"/>
+      <rect x="0" y="264" width="110" height="88" fill="#eef2ff" stroke="#c7d2fe"/>
+      <rect x="110" y="264" width="110" height="88" fill="#ecfdf5" stroke="#bbf7d0"/>
+      <rect x="220" y="264" width="110" height="88" fill="#ecfdf5" stroke="#bbf7d0"/>
+      <rect x="330" y="264" width="110" height="88" fill="#eef2ff" stroke="#c7d2fe"/>
+      <text x="132" y="228" font-size="18" font-weight="700" fill="#92400e">订单 cell</text>
+      <circle cx="174" cy="190" r="9" fill="#dc2626"/>
+      <circle cx="250" cy="130" r="7" fill="#0f766e"/>
+      <circle cx="285" cy="210" r="7" fill="#0f766e"/>
+      <circle cx="140" cy="120" r="7" fill="#0f766e"/>
+      <circle cx="92" cy="235" r="7" fill="#0f766e"/>
+      <circle cx="374" cy="145" r="7" fill="#0f766e"/>
+      <circle cx="350" cy="300" r="7" fill="#0f766e"/>
+    </g>
+  </g>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <path d="M 625 365 H 760" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)" fill="none"/>
+    <g transform="translate(790 170)" filter="url(#shadow)">
+      <rect width="330" height="330" rx="24" fill="#ffffff"/>
+      <rect width="330" height="10" rx="5" fill="#0f766e"/>
+      <text x="30" y="58" font-size="24" font-weight="700" fill="#0f172a">算法输入批次</text>
+      <text x="30" y="102" font-size="17" font-weight="700" fill="#1e293b">订单列表</text>
+      <text x="30" y="132" font-size="15" fill="#475569">当前 cell 内未分配订单</text>
+      <text x="30" y="182" font-size="17" font-weight="700" fill="#1e293b">骑手列表</text>
+      <text x="30" y="212" font-size="15" fill="#475569">同 cell + 周边 cell 活跃骑手</text>
+      <text x="30" y="262" font-size="17" font-weight="700" fill="#1e293b">过滤条件</text>
+      <text x="30" y="292" font-size="15" fill="#475569">在线、未满载、位置未过期</text>
+    </g>
+  </g>
+
+  <g font-family="Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <circle cx="100" cy="620" r="7" fill="#dc2626"/>
+    <text x="118" y="626" font-size="15" fill="#475569">订单取餐点</text>
+    <circle cx="250" cy="620" r="7" fill="#0f766e"/>
+    <text x="268" y="626" font-size="15" fill="#475569">候选骑手</text>
+    <rect x="410" y="607" width="22" height="18" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="442" y="626" font-size="15" fill="#475569">当前处理 cell</text>
+  </g>
+</svg>
