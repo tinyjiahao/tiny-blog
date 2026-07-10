@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-label="AI 客服系统设计封面图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.55" stop-color="#eefdf8"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="bubble" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .title{font:800 54px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:600 23px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .label{font:700 18px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .small{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#64748b}
+      .white{font:800 25px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .white-sub{font:600 16px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#dbeafe}
+      .chip{font:700 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+      .line{stroke:#38bdf8;stroke-width:5;fill:none;stroke-linecap:round}
+      .thin{stroke:#94a3b8;stroke-width:2;fill:none}
+    </style>
+  </defs>
+  <rect width="1400" height="760" rx="36" fill="url(#bg)"/>
+
+  <text x="84" y="112" class="title">如何设计一个 AI 客服系统</text>
+  <text x="88" y="158" class="sub">从问答命中率，到人工转接、知识库更新、风险控制和成本治理</text>
+
+  <g filter="url(#shadow)">
+    <rect x="94" y="230" width="470" height="330" rx="30" fill="url(#panel)"/>
+    <text x="138" y="294" class="white">AI Support Brain</text>
+    <text x="138" y="334" class="white-sub">意图识别 · RAG 检索 · 工具调用 · 人工协同</text>
+    <path class="line" d="M150 420 C230 360 310 490 392 426 C430 396 462 402 510 446"/>
+    <circle cx="150" cy="420" r="11" fill="#a7f3d0"/>
+    <circle cx="280" cy="426" r="11" fill="#bfdbfe"/>
+    <circle cx="392" cy="426" r="11" fill="#fde68a"/>
+    <circle cx="510" cy="446" r="11" fill="#fca5a5"/>
+    <text x="138" y="510" class="white-sub">目标：能回答、敢拒绝、会升级、可追踪</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="680" y="220" width="290" height="116" rx="26" fill="url(#bubble)"/>
+    <text x="720" y="264" class="label">用户问题</text>
+    <text x="720" y="296" class="small">订单、退款、物流、售后</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1032" y="220" width="290" height="116" rx="26" fill="url(#bubble)"/>
+    <text x="1072" y="264" class="label">知识与业务系统</text>
+    <text x="1072" y="296" class="small">FAQ、工单、订单、CRM</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="680" y="410" width="290" height="116" rx="26" fill="url(#bubble)"/>
+    <text x="720" y="454" class="label">AI 编排层</text>
+    <text x="720" y="486" class="small">检索、规划、调用工具、校验</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1032" y="410" width="290" height="116" rx="26" fill="url(#bubble)"/>
+    <text x="1072" y="454" class="label">人工客服</text>
+    <text x="1072" y="486" class="small">高风险、低置信度、复杂投诉</text>
+  </g>
+
+  <path class="thin" d="M970 278 H1030"/>
+  <path class="thin" d="M825 336 V408"/>
+  <path class="thin" d="M970 468 H1030"/>
+  <path class="thin" d="M1177 336 V408"/>
+
+  <rect x="92" y="646" width="1216" height="50" rx="25" fill="#ecfeff" stroke="#99f6e4"/>
+  <text x="132" y="678" class="chip">工程设计主线：入口分流、RAG 问答、工具执行、人机转接、会话状态、质量评估、成本与安全边界</text>
+</svg>

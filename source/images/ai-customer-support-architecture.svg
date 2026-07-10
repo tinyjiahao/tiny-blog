@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-label="AI 客服系统整体架构图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eefdf8"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title{font:800 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .box-title{font:800 21px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .box-sub{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#64748b}
+      .core-title{font:800 25px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .core-sub{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#dbeafe}
+      .band{font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+      .line{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .event{stroke:#f59e0b;stroke-width:3;fill:none;stroke-dasharray:8 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1500" height="860" rx="34" fill="url(#bg)"/>
+  <text x="64" y="72" class="title">AI 客服系统整体架构</text>
+  <text x="64" y="108" class="sub">入口先分流，AI 层负责理解与编排，知识和业务系统提供事实，人工客服处理高风险与低置信度场景</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="185" width="240" height="110" rx="22" fill="#fff"/>
+    <text x="104" y="230" class="box-title">用户入口</text>
+    <text x="104" y="262" class="box-sub">App / Web / 微信</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="390" y="150" width="250" height="88" rx="20" fill="#fff"/>
+    <text x="424" y="188" class="box-title">渠道接入层</text>
+    <text x="424" y="216" class="box-sub">鉴权、限流、会话绑定</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="390" y="270" width="250" height="88" rx="20" fill="#fff"/>
+    <text x="424" y="308" class="box-title">分流与风控</text>
+    <text x="424" y="336" class="box-sub">意图、风险、优先级</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="730" y="150" width="310" height="210" rx="28" fill="url(#core)"/>
+    <text x="790" y="210" class="core-title">AI 编排服务</text>
+    <text x="778" y="250" class="core-sub">Prompt 模板与策略选择</text>
+    <text x="778" y="280" class="core-sub">RAG 检索与答案生成</text>
+    <text x="778" y="310" class="core-sub">工具调用与结果校验</text>
+    <text x="778" y="340" class="core-sub">置信度判断与转人工</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1130" y="94" width="280" height="92" rx="20" fill="#fff"/>
+    <text x="1164" y="132" class="box-title">知识库 / 向量库</text>
+    <text x="1164" y="160" class="box-sub">FAQ、政策、产品文档</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1130" y="220" width="280" height="92" rx="20" fill="#fff"/>
+    <text x="1164" y="258" class="box-title">业务工具层</text>
+    <text x="1164" y="286" class="box-sub">订单、退款、物流、优惠券</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1130" y="346" width="280" height="92" rx="20" fill="#fff"/>
+    <text x="1164" y="384" class="box-title">模型服务层</text>
+    <text x="1164" y="412" class="box-sub">主模型、小模型、Embedding</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="730" y="520" width="310" height="115" rx="22" fill="#fff"/>
+    <text x="770" y="566" class="box-title">会话与工单服务</text>
+    <text x="770" y="596" class="box-sub">会话状态、消息记录、工单流转</text>
+    <text x="770" y="620" class="box-sub">人工接管、客服备注、SLA</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="390" y="530" width="250" height="96" rx="20" fill="#fff"/>
+    <text x="424" y="570" class="box-title">人工客服工作台</text>
+    <text x="424" y="598" class="box-sub">接管、协同、回填知识</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1130" y="520" width="280" height="116" rx="20" fill="#fff"/>
+    <text x="1164" y="564" class="box-title">质量与观测平台</text>
+    <text x="1164" y="594" class="box-sub">命中率、转人工率、满意度</text>
+    <text x="1164" y="618" class="box-sub">成本、延迟、失败追踪</text>
+  </g>
+
+  <path class="line" d="M310 240 L380 194"/>
+  <path class="line" d="M640 194 L720 230"/>
+  <path class="line" d="M310 252 C358 282 348 312 380 314"/>
+  <path class="line" d="M640 314 L720 292"/>
+  <path class="line" d="M1040 218 C1084 190 1084 144 1120 140"/>
+  <path class="line" d="M1040 260 L1120 266"/>
+  <path class="line" d="M1040 316 C1084 346 1084 390 1120 392"/>
+  <path class="line" d="M885 360 L885 510"/>
+  <path class="line" d="M730 578 L650 578"/>
+  <path class="event" d="M1040 578 L1120 578"/>
+  <path class="event" d="M515 530 C520 450 676 430 762 360"/>
+
+  <rect x="78" y="742" width="1344" height="48" rx="24" fill="#ecfeff" stroke="#99f6e4"/>
+  <text x="116" y="773" class="band">一句话：AI 客服不是一个聊天框，而是一套带知识、工具、权限、人工兜底和持续评估的客服操作系统。</text>
+</svg>
