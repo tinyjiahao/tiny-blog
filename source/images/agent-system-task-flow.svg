@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-label="AI Agent 一次任务执行流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title{font:800 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .node-title{font:800 21px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .node-sub{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#64748b}
+      .core-title{font:800 21px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .core-sub{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#dbeafe}
+      .label{font:800 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+      .line{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .loop{stroke:#f59e0b;stroke-width:3;fill:none;stroke-dasharray:8 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1500" height="860" rx="34" fill="url(#bg)"/>
+  <text x="64" y="72" class="title">一次 Agent 任务是怎么跑起来的</text>
+  <text x="64" y="108" class="sub">复杂任务通常不是一次生成答案，而是在计划、执行、观察、修正之间循环</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="240" width="210" height="116" rx="22" fill="#fff"/>
+    <text x="120" y="286" class="node-title">用户请求</text>
+    <text x="120" y="318" class="node-sub">目标、约束、输入</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="360" y="240" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="400" y="286" class="node-title">读取 Memory</text>
+    <text x="400" y="318" class="node-sub">偏好、历史、项目上下文</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="660" y="240" width="230" height="116" rx="22" fill="#0f766e"/>
+    <text x="704" y="286" class="core-title">Planner 规划</text>
+    <text x="704" y="318" class="core-sub">拆步骤、定验收标准</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="960" y="240" width="230" height="116" rx="22" fill="#2563eb"/>
+    <text x="1000" y="286" class="core-title">Executor 执行</text>
+    <text x="1000" y="318" class="core-sub">逐步行动、记录观察</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1240" y="240" width="210" height="116" rx="22" fill="#fff"/>
+    <text x="1280" y="286" class="node-title">调用 Tools</text>
+    <text x="1280" y="318" class="node-sub">搜索、读写、API</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="960" y="540" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="1000" y="586" class="node-title">检查结果</text>
+    <text x="1000" y="618" class="node-sub">测试、校验、用户目标</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="660" y="540" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="700" y="586" class="node-title">更新计划</text>
+    <text x="700" y="618" class="node-sub">失败则调整下一步</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="360" y="540" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="400" y="586" class="node-title">写回 Memory</text>
+    <text x="400" y="618" class="node-sub">结论、偏好、经验</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="80" y="540" width="210" height="116" rx="22" fill="#fff"/>
+    <text x="120" y="586" class="node-title">返回结果</text>
+    <text x="120" y="618" class="node-sub">答案、文件、操作记录</text>
+  </g>
+
+  <path class="line" d="M290 298 L350 298"/>
+  <path class="line" d="M590 298 L650 298"/>
+  <path class="line" d="M890 298 L950 298"/>
+  <path class="line" d="M1190 298 L1230 298"/>
+  <path class="line" d="M1345 356 L1345 598 L1200 598"/>
+  <path class="line" d="M960 598 L900 598"/>
+  <path class="line" d="M660 598 L600 598"/>
+  <path class="line" d="M360 598 L300 598"/>
+  <path class="loop" d="M775 540 L775 448 L1075 448 L1075 366"/>
+
+  <text x="1112" y="430" class="label">观察结果</text>
+  <text x="790" y="500" class="label">需要修正就回到执行</text>
+</svg>

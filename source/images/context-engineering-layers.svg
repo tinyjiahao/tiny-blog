@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">上下文工程分层图</title>
+  <desc id="desc">上下文工程由指令层、用户层、检索层、记忆层、工具层和评估层组成。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#ecfeff"/>
+    </linearGradient>
+    <style>
+      .title { font: 800 38px Inter, Arial, sans-serif; fill: #0f172a; }
+      .sub { font: 600 20px Inter, Arial, sans-serif; fill: #475569; }
+      .label { font: 800 24px Inter, Arial, sans-serif; fill: #0f172a; }
+      .body { font: 600 17px Inter, Arial, sans-serif; fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect width="1320" height="760" fill="url(#bg)"/>
+  <text x="72" y="78" class="title">上下文不是一段文本，而是一组分层信息</text>
+  <text x="74" y="116" class="sub">每一层都要决定：是否带入、带多少、用什么格式、何时更新。</text>
+
+  <g>
+    <rect x="244" y="170" width="832" height="74" rx="20" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+    <text x="294" y="216" class="label">系统指令层</text>
+    <text x="520" y="216" class="body">角色、边界、安全规则、输出规范</text>
+
+    <rect x="244" y="260" width="832" height="74" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="294" y="306" class="label">用户任务层</text>
+    <text x="520" y="306" class="body">当前目标、用户输入、任务约束、验收标准</text>
+
+    <rect x="244" y="350" width="832" height="74" rx="20" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="294" y="396" class="label">检索知识层</text>
+    <text x="520" y="396" class="body">RAG 片段、文档证据、代码片段、引用来源</text>
+
+    <rect x="244" y="440" width="832" height="74" rx="20" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <text x="294" y="486" class="label">记忆状态层</text>
+    <text x="520" y="486" class="body">历史摘要、用户偏好、计划进度、长期记忆</text>
+
+    <rect x="244" y="530" width="832" height="74" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="294" y="576" class="label">工具结果层</text>
+    <text x="520" y="576" class="body">搜索结果、数据库查询、命令输出、网页截图</text>
+  </g>
+
+  <rect x="300" y="648" width="720" height="48" rx="24" fill="#0f172a" opacity="0.9"/>
+  <text x="392" y="679" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#f8fafc">评估层贯穿全程：看模型是否带对信息、用对信息、答对问题。</text>
+</svg>

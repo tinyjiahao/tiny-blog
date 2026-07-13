@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">提示词结构拆解图</title>
+  <desc id="desc">一个高质量提示词由角色、目标、上下文、输入、约束、输出格式和验收标准组成。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#0284c7"/>
+    </marker>
+    <style>
+      .title { font: 800 38px Inter, Arial, sans-serif; fill: #0f172a; }
+      .sub { font: 600 20px Inter, Arial, sans-serif; fill: #475569; }
+      .label { font: 800 23px Inter, Arial, sans-serif; fill: #0f172a; }
+      .body { font: 600 17px Inter, Arial, sans-serif; fill: #64748b; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1320" height="760" fill="url(#bg)"/>
+  <text x="74" y="78" class="title">一个可复用 Prompt 的 7 个零件</text>
+  <text x="76" y="116" class="sub">不是每次都要写满，但关键任务最好显式写清楚。</text>
+
+  <rect x="505" y="254" width="310" height="150" rx="24" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+  <text x="598" y="318" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#f8fafc">Prompt</text>
+  <text x="568" y="358" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="600" fill="#cbd5e1">任务说明的工程化封装</text>
+
+  <g>
+    <rect x="82" y="190" width="250" height="104" rx="18" class="card"/>
+    <text x="116" y="232" class="label">角色</text>
+    <text x="116" y="266" class="body">以什么视角完成任务</text>
+    <path d="M336 242 H488" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+  <g>
+    <rect x="82" y="434" width="250" height="104" rx="18" class="card"/>
+    <text x="116" y="476" class="label">目标</text>
+    <text x="116" y="510" class="body">最终要交付什么结果</text>
+    <path d="M336 486 H488" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+  <g>
+    <rect x="392" y="552" width="250" height="104" rx="18" class="card"/>
+    <text x="426" y="594" class="label">上下文</text>
+    <text x="426" y="628" class="body">背景、资料、业务限制</text>
+    <path d="M594 552 L626 420" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+  <g>
+    <rect x="678" y="552" width="250" height="104" rx="18" class="card"/>
+    <text x="712" y="594" class="label">输入</text>
+    <text x="712" y="628" class="body">待处理文本、数据、代码</text>
+    <path d="M758 552 L702 420" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+  <g>
+    <rect x="988" y="190" width="250" height="104" rx="18" class="card"/>
+    <text x="1022" y="232" class="label">约束</text>
+    <text x="1022" y="266" class="body">不能做什么、注意什么</text>
+    <path d="M984 242 H832" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+  <g>
+    <rect x="988" y="434" width="250" height="104" rx="18" class="card"/>
+    <text x="1022" y="476" class="label">输出格式</text>
+    <text x="1022" y="510" class="body">表格、JSON、步骤、代码</text>
+    <path d="M984 486 H832" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+  <g>
+    <rect x="535" y="96" width="250" height="104" rx="18" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+    <text x="569" y="138" class="label">验收标准</text>
+    <text x="569" y="172" class="body">怎样算回答合格</text>
+    <path d="M660 204 V236" stroke="#0284c7" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  </g>
+</svg>

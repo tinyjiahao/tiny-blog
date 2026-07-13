@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="720" viewBox="0 0 1320 720" role="img" aria-labelledby="title desc">
+  <title id="title">提示词工程迭代流程图</title>
+  <desc id="desc">提示词工程从定义任务、补上下文、加约束、运行样例、观察失败到固化模板的迭代闭环。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#0891b2"/>
+    </marker>
+    <style>
+      .title { font: 800 38px Inter, Arial, sans-serif; fill: #0f172a; }
+      .step { font: 800 23px Inter, Arial, sans-serif; fill: #0f172a; }
+      .body { font: 600 18px Inter, Arial, sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #06b6d4; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <rect width="1320" height="720" fill="url(#bg)"/>
+  <text x="72" y="76" class="title">提示词工程不是一次写对，而是小步迭代</text>
+
+  <g>
+    <rect x="80" y="168" width="230" height="128" rx="20" class="card"/>
+    <text x="116" y="216" class="step">1. 定义任务</text>
+    <text x="116" y="254" class="body">结果、读者、边界</text>
+  </g>
+  <path d="M314 232 H392" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="408" y="168" width="230" height="128" rx="20" class="card"/>
+    <text x="444" y="216" class="step">2. 补上下文</text>
+    <text x="444" y="254" class="body">资料、样例、背景</text>
+  </g>
+  <path d="M642 232 H720" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="736" y="168" width="230" height="128" rx="20" class="card"/>
+    <text x="772" y="216" class="step">3. 加约束</text>
+    <text x="772" y="254" class="body">格式、禁区、口径</text>
+  </g>
+  <path d="M970 232 H1048" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="1064" y="168" width="176" height="128" rx="20" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+    <text x="1096" y="216" class="step">4. 跑样例</text>
+    <text x="1096" y="254" class="body">看真实输出</text>
+  </g>
+
+  <path d="M1152 306 C1152 388 1070 416 966 416" stroke="#0891b2" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="736" y="386" width="230" height="128" rx="20" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+    <text x="772" y="434" class="step">5. 观察失败</text>
+    <text x="772" y="472" class="body">漏条件、跑偏、虚构</text>
+  </g>
+  <path d="M732 450 H654" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="408" y="386" width="230" height="128" rx="20" class="card"/>
+    <text x="444" y="434" class="step">6. 修改提示词</text>
+    <text x="444" y="472" class="body">补规则或改结构</text>
+  </g>
+  <path d="M404 450 H326" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="80" y="386" width="230" height="128" rx="20" fill="#f0fdf4" stroke="#22c55e" stroke-width="3"/>
+    <text x="116" y="434" class="step">7. 固化模板</text>
+    <text x="116" y="472" class="body">沉淀为可复用规范</text>
+  </g>
+
+  <rect x="170" y="610" width="980" height="54" rx="27" fill="#0f172a" opacity="0.9"/>
+  <text x="230" y="644" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">真正的提示词工程，是把一次“灵光一现”的好回答，变成下次也能稳定复现的流程。</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">AI Agent Trace 结构图</title>
+  <desc id="desc">一次 Agent Run 中根 Trace、Planner、LLM、Tool、Memory、Evaluator 等 span 的层级结构。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#ecfeff"/>
+    </linearGradient>
+    <style>
+      .title { font: 800 38px Inter, Arial, sans-serif; fill: #0f172a; }
+      .sub { font: 600 20px Inter, Arial, sans-serif; fill: #475569; }
+      .label { font: 800 23px Inter, Arial, sans-serif; fill: #0f172a; }
+      .body { font: 600 17px Inter, Arial, sans-serif; fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect width="1320" height="760" fill="url(#bg)"/>
+  <text x="72" y="78" class="title">一次 Agent Run 应该长成一棵 Trace</text>
+  <text x="74" y="116" class="sub">根节点记录用户任务，子节点记录每次计划、模型调用、工具调用、失败与评估。</text>
+
+  <line x1="260" y1="230" x2="260" y2="612" stroke="#94a3b8" stroke-width="4"/>
+  <circle cx="260" cy="194" r="14" fill="#0ea5e9"/>
+  <rect x="300" y="160" width="720" height="70" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="334" y="204" class="label">Root Trace：agent.run</text>
+  <text x="620" y="204" class="body">request_id、user_id、goal、total_tokens、total_cost、status</text>
+
+  <circle cx="260" cy="294" r="12" fill="#22c55e"/>
+  <rect x="300" y="260" width="600" height="68" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <text x="334" y="302" class="label">Span：planner.step</text>
+  <text x="560" y="302" class="body">计划、子任务、下一步动作</text>
+
+  <circle cx="260" cy="386" r="12" fill="#6366f1"/>
+  <rect x="300" y="352" width="600" height="68" rx="16" fill="#e0e7ff" stroke="#6366f1" stroke-width="3"/>
+  <text x="334" y="394" class="label">Span：llm.call</text>
+  <text x="536" y="394" class="body">model、tokens、latency、prompt hash、finish reason</text>
+
+  <circle cx="260" cy="478" r="12" fill="#f59e0b"/>
+  <rect x="300" y="444" width="600" height="68" rx="16" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+  <text x="334" y="486" class="label">Span：tool.call</text>
+  <text x="536" y="486" class="body">tool name、args schema、duration、result size、error</text>
+
+  <circle cx="260" cy="570" r="12" fill="#a855f7"/>
+  <rect x="300" y="536" width="600" height="68" rx="16" fill="#f3e8ff" stroke="#a855f7" stroke-width="3"/>
+  <text x="334" y="578" class="label">Span：memory.retrieve</text>
+  <text x="600" y="578" class="body">query、top_k、hit ids、scores</text>
+
+  <circle cx="260" cy="650" r="12" fill="#ef4444"/>
+  <rect x="300" y="616" width="600" height="68" rx="16" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
+  <text x="334" y="658" class="label">Event：failure / evaluator</text>
+  <text x="640" y="658" class="body">错误类型、恢复动作、质量评分</text>
+</svg>
