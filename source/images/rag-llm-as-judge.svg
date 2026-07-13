@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-label="LLM-as-Judge 评估流程">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title{font:800 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .node-title{font:800 21px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .node-sub{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#64748b}
+      .judge-title{font:800 24px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .judge-sub{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#dbeafe}
+      .line{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .soft{stroke:#f59e0b;stroke-width:3;fill:none;stroke-dasharray:8 8;marker-end:url(#arrow)}
+      .label{font:800 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+    </style>
+  </defs>
+  <rect width="1500" height="860" rx="34" fill="url(#bg)"/>
+  <text x="64" y="72" class="title">LLM-as-Judge 不是让模型随便打分</text>
+  <text x="64" y="108" class="sub">它需要清晰 Rubric、结构化输出、人工校准和稳定性监控</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="250" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="130" y="296" class="node-title">评估样本</text>
+    <text x="130" y="328" class="node-sub">问题、context、回答</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="390" y="250" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="430" y="296" class="node-title">Rubric</text>
+    <text x="430" y="328" class="node-sub">评分标准和反例</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="690" y="220" width="260" height="176" rx="28" fill="#2563eb"/>
+    <text x="748" y="282" class="judge-title">Judge LLM</text>
+    <text x="742" y="320" class="judge-sub">按标准判断是否满足</text>
+    <text x="742" y="350" class="judge-sub">输出分数、理由、证据</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1030" y="250" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="1070" y="296" class="node-title">结构化结果</text>
+    <text x="1070" y="328" class="node-sub">score、label、reason</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1030" y="520" width="230" height="116" rx="22" fill="#fff"/>
+    <text x="1070" y="566" class="node-title">人工抽检</text>
+    <text x="1070" y="598" class="node-sub">校准阈值和偏差</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="690" y="520" width="260" height="116" rx="22" fill="#fff"/>
+    <text x="730" y="566" class="node-title">评估看板</text>
+    <text x="730" y="598" class="node-sub">趋势、分桶、失败样本</text>
+  </g>
+
+  <path class="line" d="M320 308 L380 308"/>
+  <path class="line" d="M620 308 L680 308"/>
+  <path class="line" d="M950 308 L1020 308"/>
+  <path class="soft" d="M1145 366 L1145 510"/>
+  <path class="soft" d="M1030 578 L960 578"/>
+  <path class="soft" d="M820 520 L820 406"/>
+
+  <text x="1170" y="450" class="label">抽样复核</text>
+  <text x="820" y="680" class="label">Judge 也要被评估，不是绝对真理</text>
+</svg>

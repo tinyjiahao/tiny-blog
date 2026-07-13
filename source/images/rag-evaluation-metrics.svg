@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-label="RAG 评估指标矩阵">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .title{font:800 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .head{font:800 24px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .role{font:800 20px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .text{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .hint{font:800 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+    </style>
+  </defs>
+  <rect width="1500" height="860" rx="34" fill="url(#bg)"/>
+  <text x="64" y="72" class="title">RAG 常用评估指标怎么分工</text>
+  <text x="64" y="108" class="sub">不要只盯一个总分，先判断问题出在检索、生成，还是评审本身</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="180" width="300" height="420" rx="26" fill="#fff"/>
+    <rect x="90" y="180" width="300" height="72" rx="26" fill="#0f766e"/>
+    <path d="M90 224 H390 V252 H90 Z" fill="#0f766e"/>
+    <text x="176" y="226" class="head">Recall</text>
+    <text x="130" y="300" class="role">有没有漏掉关键证据</text>
+    <text x="130" y="344" class="text">关注“该找的有没有找回来”</text>
+    <text x="130" y="376" class="text">低 Recall：答案可能缺事实基础</text>
+    <text x="130" y="408" class="text">适合先调 chunking、Top-K、召回策略</text>
+    <text x="130" y="520" class="hint">典型症状：用户问 A，证据里没有 A</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="180" width="300" height="420" rx="26" fill="#fff"/>
+    <rect x="430" y="180" width="300" height="72" rx="26" fill="#2563eb"/>
+    <path d="M430 224 H730 V252 H430 Z" fill="#2563eb"/>
+    <text x="506" y="226" class="head">Precision</text>
+    <text x="470" y="300" class="role">证据里噪声多不多</text>
+    <text x="470" y="344" class="text">关注“排前面的是否真相关”</text>
+    <text x="470" y="376" class="text">低 Precision：上下文塞了很多杂音</text>
+    <text x="470" y="408" class="text">适合调 Rerank、过滤、元数据约束</text>
+    <text x="470" y="520" class="hint">典型症状：引用很多，但大半没用</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="180" width="300" height="420" rx="26" fill="#fff"/>
+    <rect x="770" y="180" width="300" height="72" rx="26" fill="#7c3aed"/>
+    <path d="M770 224 H1070 V252 H770 Z" fill="#7c3aed"/>
+    <text x="828" y="226" class="head">Faithfulness</text>
+    <text x="810" y="300" class="role">回答有没有编</text>
+    <text x="810" y="344" class="text">关注回答是否被 context 支撑</text>
+    <text x="810" y="376" class="text">低 Faithfulness：模型越界发挥</text>
+    <text x="810" y="408" class="text">适合调 Prompt、引用约束、拒答策略</text>
+    <text x="810" y="520" class="hint">典型症状：证据没说，回答却说了</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1110" y="180" width="300" height="420" rx="26" fill="#fff"/>
+    <rect x="1110" y="180" width="300" height="72" rx="26" fill="#f59e0b"/>
+    <path d="M1110 224 H1410 V252 H1110 Z" fill="#f59e0b"/>
+    <text x="1174" y="226" class="head">Relevance</text>
+    <text x="1150" y="300" class="role">回答有没有答到点上</text>
+    <text x="1150" y="344" class="text">关注答案是否回应用户问题</text>
+    <text x="1150" y="376" class="text">低 Relevance：可能啰嗦、跑题、漏答</text>
+    <text x="1150" y="408" class="text">适合调问题改写和答案格式</text>
+    <text x="1150" y="520" class="hint">典型症状：都是真的，但不是用户要的</text>
+  </g>
+
+  <rect x="120" y="700" width="1260" height="54" rx="27" fill="#ecfeff" stroke="#99f6e4"/>
+  <text x="162" y="734" class="hint">经验：Recall 看检索漏不漏，Precision 看上下文脏不脏，Faithfulness 看回答编不编，Relevance 看有没有答到问题。</text>
+</svg>

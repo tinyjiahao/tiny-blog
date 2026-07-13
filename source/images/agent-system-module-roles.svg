@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-label="AI Agent 模块职责对照图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .title{font:800 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .sub{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .head{font:800 24px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#fff}
+      .role{font:800 20px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a}
+      .text{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#475569}
+      .hint{font:800 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#0f766e}
+    </style>
+  </defs>
+  <rect width="1500" height="860" rx="34" fill="url(#bg)"/>
+  <text x="64" y="72" class="title">Planner、Executor、Memory、Tools 分别管什么</text>
+  <text x="64" y="108" class="sub">把四个模块分清楚，Agent 才不会一边想、一边做、一边忘、一边乱调用工具</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="180" width="300" height="430" rx="26" fill="#fff"/>
+    <rect x="90" y="180" width="300" height="72" rx="26" fill="#0f766e"/>
+    <path d="M90 224 H390 V252 H90 Z" fill="#0f766e"/>
+    <text x="188" y="226" class="head">Planner</text>
+    <text x="130" y="300" class="role">负责“想清楚”</text>
+    <text x="130" y="344" class="text">把大目标拆成小步骤</text>
+    <text x="130" y="376" class="text">决定先做什么、后做什么</text>
+    <text x="130" y="408" class="text">识别风险和依赖</text>
+    <text x="130" y="440" class="text">给出验收标准</text>
+    <text x="130" y="520" class="hint">常见问题：计划太粗，Executor 会乱跑</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="180" width="300" height="430" rx="26" fill="#fff"/>
+    <rect x="430" y="180" width="300" height="72" rx="26" fill="#2563eb"/>
+    <path d="M430 224 H730 V252 H430 Z" fill="#2563eb"/>
+    <text x="520" y="226" class="head">Executor</text>
+    <text x="470" y="300" class="role">负责“做出来”</text>
+    <text x="470" y="344" class="text">按计划逐步行动</text>
+    <text x="470" y="376" class="text">调用工具并读取结果</text>
+    <text x="470" y="408" class="text">处理错误和重试</text>
+    <text x="470" y="440" class="text">把观察反馈给 Planner</text>
+    <text x="470" y="520" class="hint">常见问题：只顾执行，不检查目标是否偏了</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="770" y="180" width="300" height="430" rx="26" fill="#fff"/>
+    <rect x="770" y="180" width="300" height="72" rx="26" fill="#7c3aed"/>
+    <path d="M770 224 H1070 V252 H770 Z" fill="#7c3aed"/>
+    <text x="860" y="226" class="head">Memory</text>
+    <text x="810" y="300" class="role">负责“记住该记的”</text>
+    <text x="810" y="344" class="text">保存用户偏好和长期事实</text>
+    <text x="810" y="376" class="text">保留任务状态和中间结果</text>
+    <text x="810" y="408" class="text">按需检索相关历史</text>
+    <text x="810" y="440" class="text">沉淀失败经验和成功模式</text>
+    <text x="810" y="520" class="hint">常见问题：全塞上下文，反而让模型迷路</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1110" y="180" width="300" height="430" rx="26" fill="#fff"/>
+    <rect x="1110" y="180" width="300" height="72" rx="26" fill="#f59e0b"/>
+    <path d="M1110 224 H1410 V252 H1110 Z" fill="#f59e0b"/>
+    <text x="1210" y="226" class="head">Tools</text>
+    <text x="1150" y="300" class="role">负责“连接外部世界”</text>
+    <text x="1150" y="344" class="text">搜索资料、读取文件</text>
+    <text x="1150" y="376" class="text">调用 API、数据库、MCP</text>
+    <text x="1150" y="408" class="text">执行代码、写入结果</text>
+    <text x="1150" y="440" class="text">返回可验证的观察</text>
+    <text x="1150" y="520" class="hint">常见问题：权限太大，调用不可控</text>
+  </g>
+
+  <rect x="110" y="700" width="1280" height="54" rx="27" fill="#ecfeff" stroke="#99f6e4"/>
+  <text x="152" y="734" class="hint">判断一个 Agent 架构好不好，可以先问：谁负责计划？谁负责执行？谁保存状态？谁控制工具边界？</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="740" viewBox="0 0 1320 740" role="img" aria-labelledby="title desc">
+  <title id="title">上下文工程流程图</title>
+  <desc id="desc">从用户目标到上下文组装、模型调用、工具反馈、压缩记忆和评估迭代的闭环。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#0891b2"/>
+    </marker>
+    <style>
+      .title { font: 800 38px Inter, Arial, sans-serif; fill: #0f172a; }
+      .step { font: 800 22px Inter, Arial, sans-serif; fill: #0f172a; }
+      .body { font: 600 17px Inter, Arial, sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #06b6d4; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <rect width="1320" height="740" fill="url(#bg)"/>
+  <text x="72" y="76" class="title">一次上下文工程闭环</text>
+
+  <rect x="78" y="164" width="220" height="124" rx="20" class="card"/>
+  <text x="112" y="212" class="step">1. 理解目标</text>
+  <text x="112" y="250" class="body">用户想完成什么</text>
+  <path d="M302 226 H382" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="398" y="164" width="220" height="124" rx="20" class="card"/>
+  <text x="432" y="212" class="step">2. 选择上下文</text>
+  <text x="432" y="250" class="body">检索、记忆、规则</text>
+  <path d="M622 226 H702" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="718" y="164" width="220" height="124" rx="20" class="card"/>
+  <text x="752" y="212" class="step">3. 组装窗口</text>
+  <text x="752" y="250" class="body">排序、压缩、格式化</text>
+  <path d="M942 226 H1022" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="1038" y="164" width="202" height="124" rx="20" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+  <text x="1072" y="212" class="step">4. 模型调用</text>
+  <text x="1072" y="250" class="body">生成或决策</text>
+
+  <path d="M1138 298 C1138 380 1058 410 942 410" stroke="#0891b2" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="718" y="380" width="220" height="124" rx="20" fill="#fff7ed" stroke="#f59e0b" stroke-width="3"/>
+  <text x="752" y="428" class="step">5. 工具反馈</text>
+  <text x="752" y="466" class="body">搜索、查询、执行</text>
+  <path d="M714 442 H634" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="398" y="380" width="220" height="124" rx="20" class="card"/>
+  <text x="432" y="428" class="step">6. 更新状态</text>
+  <text x="432" y="466" class="body">摘要、记忆、计划</text>
+  <path d="M394 442 H314" stroke="#0891b2" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <rect x="78" y="380" width="220" height="124" rx="20" fill="#f0fdf4" stroke="#22c55e" stroke-width="3"/>
+  <text x="112" y="428" class="step">7. 评估迭代</text>
+  <text x="112" y="466" class="body">是否答对、是否漏带</text>
+
+  <path d="M188 380 C188 330 188 318 188 302" stroke="#0891b2" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="226" y="622" width="868" height="54" rx="27" fill="#0f172a" opacity="0.9"/>
+  <text x="284" y="656" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">关键不是“塞更多”，而是每一步都只带对下一步有用的信息。</text>
+</svg>
