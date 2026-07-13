@@ -1,5 +1,5 @@
 ---
-title: AI Agent Harness 详解：让 Agent 稳定执行的工程框架
+title: Harness  Engineering 工程详解：让 AI Agent 更稳定的执行
 date: 2026-07-13 18:50:33
 description: '「AI Agent Harness 详解」—— 参考“模型是大脑，Harness 是身体”的思路，用知乎点赞作为例子，讲清 Harness 如何通过工具注册表、上下文管理、Agent Loop、护栏、结果验证、确定性接管和可观测性，让 Agent 从会回答变成能稳定执行。'
 cover: /images/ai-agent-harness-hero.svg
