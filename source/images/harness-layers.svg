@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Harness 分层图</title>
+  <desc id="desc">展示 Harness 的工具注册表、上下文管理、Agent Loop、护栏、验证、确定性接管和可观测性。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <style>
+      .title { font: 800 38px Inter, Arial, sans-serif; fill: #0f172a; }
+      .sub { font: 600 20px Inter, Arial, sans-serif; fill: #475569; }
+      .label { font: 800 24px Inter, Arial, sans-serif; fill: #0f172a; }
+      .body { font: 600 17px Inter, Arial, sans-serif; fill: #64748b; }
+    </style>
+  </defs>
+
+  <rect width="1320" height="760" fill="url(#bg)"/>
+  <text x="72" y="78" class="title">Harness 不是一个组件，而是一组控制层</text>
+  <text x="74" y="116" class="sub">它把开放的模型能力，包进可控、可验证、可运营的工程系统里。</text>
+
+  <rect x="244" y="160" width="832" height="70" rx="20" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="294" y="204" class="label">工具注册表</text>
+  <text x="520" y="204" class="body">哪些工具能用，参数 schema 是什么，权限边界在哪里</text>
+
+  <rect x="244" y="250" width="832" height="70" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+  <text x="294" y="294" class="label">上下文管理</text>
+  <text x="520" y="294" class="body">保留目标、压缩历史、过滤噪声、避免窗口爆掉</text>
+
+  <rect x="244" y="340" width="832" height="70" rx="20" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+  <text x="294" y="384" class="label">Agent Loop</text>
+  <text x="520" y="384" class="body">观察、计划、执行、接收结果、继续下一轮</text>
+
+  <rect x="244" y="430" width="832" height="70" rx="20" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+  <text x="294" y="474" class="label">护栏</text>
+  <text x="520" y="474" class="body">迭代上限、工具调用上限、风险动作确认、异常停止</text>
+
+  <rect x="244" y="520" width="832" height="70" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <text x="294" y="564" class="label">验证步骤</text>
+  <text x="520" y="564" class="body">不要只听模型说完成，要检查页面、状态、接口或数据库</text>
+
+  <rect x="244" y="610" width="832" height="70" rx="20" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
+  <text x="294" y="654" class="label">确定性接管</text>
+  <text x="520" y="654" class="body">登录、验证码提示、权限判断等场景由代码接管</text>
+</svg>
