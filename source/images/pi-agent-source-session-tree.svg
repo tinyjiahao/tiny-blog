@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent JSONL 会话树与上下文压缩</title>
+  <desc id="desc">展示 Pi Agent 用 append-only JSONL 保存会话树，并通过 compaction entry 改变后续模型上下文起点。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="52%" stop-color="#123b4a"/>
+      <stop offset="100%" stop-color="#2d2a6f"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#93c5fd"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="780" fill="url(#bg)"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="850" fill="#f8fafc">会话不是线性日志，而是一棵 JSONL 树</text>
+  <text x="74" y="134" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650" fill="#dbeafe">原始历史 append-only 保存；模型上下文可以从压缩节点重新开始</text>
+
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <rect x="94" y="230" width="360" height="420" rx="24" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="138" y="286" font-size="30" font-weight="820" fill="#f8fafc">JSONL Entries</text>
+    <text x="138" y="330" font-size="19" font-weight="650" fill="#cbd5e1">id + parentId</text>
+    <text x="138" y="374" font-size="19" font-weight="650" fill="#dbeafe">message</text>
+    <text x="138" y="414" font-size="19" font-weight="650" fill="#dbeafe">model switch</text>
+    <text x="138" y="454" font-size="19" font-weight="650" fill="#dbeafe">tool result</text>
+    <text x="138" y="494" font-size="19" font-weight="650" fill="#dbeafe">branch summary</text>
+    <text x="138" y="534" font-size="19" font-weight="650" fill="#dbeafe">compaction</text>
+
+    <circle cx="728" cy="260" r="22" fill="#38bdf8"/>
+    <circle cx="660" cy="360" r="22" fill="#a78bfa"/>
+    <circle cx="796" cy="360" r="22" fill="#a78bfa"/>
+    <circle cx="612" cy="470" r="22" fill="#f59e0b"/>
+    <circle cx="708" cy="470" r="22" fill="#f59e0b"/>
+    <circle cx="828" cy="470" r="22" fill="#22c55e"/>
+    <circle cx="904" cy="568" r="22" fill="#fb7185"/>
+    <text x="750" y="268" font-size="18" font-weight="750" fill="#f8fafc">root</text>
+    <text x="562" y="478" font-size="17" font-weight="750" fill="#f8fafc">fork</text>
+    <text x="930" y="576" font-size="17" font-weight="750" fill="#f8fafc">compact</text>
+
+    <rect x="1012" y="266" width="280" height="270" rx="24" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="1050" y="322" font-size="30" font-weight="820" fill="#f8fafc">模型上下文</text>
+    <text x="1050" y="368" font-size="19" font-weight="650" fill="#dbeafe">压缩摘要</text>
+    <text x="1050" y="408" font-size="19" font-weight="650" fill="#dbeafe">当前分支消息</text>
+    <text x="1050" y="448" font-size="19" font-weight="650" fill="#dbeafe">必要工具结果</text>
+  </g>
+
+  <path d="M715 282 C698 306 678 330 668 340" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M742 282 C760 306 784 330 790 340" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M650 382 C636 414 622 442 616 452" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M670 382 C686 414 700 442 704 452" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M806 382 C818 414 826 442 828 452" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M846 488 C876 516 894 540 900 548" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M926 568 C956 522 986 466 1002 428" stroke="#93c5fd" stroke-width="5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <text x="298" y="716" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" fill="#f8fafc">会话文件保留完整历史；模型只需要看到当前分支上的有效上下文。</text>
+</svg>
