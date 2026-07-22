@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent 工具调用流水线</title>
+  <desc id="desc">展示模型生成工具调用后，Pi Agent 查找工具、校验参数、执行 hooks、运行工具并生成 ToolResultMessage 的过程。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#164e63"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#67e8f9"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#bg)"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="850" fill="#f8fafc">工具调用：从结构化决策到真实操作</text>
+  <text x="74" y="134" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650" fill="#dbeafe">模型只生成 tool call，真正落地要经过查找、校验、Hook、权限与结果归一化</text>
+
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <rect x="80" y="260" width="160" height="96" rx="16" fill="#102033" stroke="#a78bfa" stroke-width="3"/>
+    <text x="118" y="300" font-size="22" font-weight="820" fill="#f8fafc">ToolCall</text>
+    <text x="112" y="328" font-size="16" font-weight="650" fill="#cbd5e1">name + args</text>
+
+    <rect x="300" y="260" width="160" height="96" rx="16" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="340" y="300" font-size="22" font-weight="820" fill="#f8fafc">查找工具</text>
+    <text x="328" y="328" font-size="16" font-weight="650" fill="#cbd5e1">tool registry</text>
+
+    <rect x="520" y="260" width="160" height="96" rx="16" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="560" y="300" font-size="22" font-weight="820" fill="#f8fafc">校验参数</text>
+    <text x="548" y="328" font-size="16" font-weight="650" fill="#cbd5e1">TypeBox schema</text>
+
+    <rect x="740" y="260" width="160" height="96" rx="16" fill="#102033" stroke="#fb7185" stroke-width="3"/>
+    <text x="782" y="300" font-size="22" font-weight="820" fill="#f8fafc">前置 Hook</text>
+    <text x="780" y="328" font-size="16" font-weight="650" fill="#cbd5e1">permission</text>
+
+    <rect x="960" y="260" width="160" height="96" rx="16" fill="#102033" stroke="#22c55e" stroke-width="3"/>
+    <text x="1000" y="300" font-size="22" font-weight="820" fill="#f8fafc">执行工具</text>
+    <text x="996" y="328" font-size="16" font-weight="650" fill="#cbd5e1">read / bash / edit</text>
+
+    <rect x="1180" y="260" width="160" height="96" rx="16" fill="#102033" stroke="#eab308" stroke-width="3"/>
+    <text x="1222" y="300" font-size="22" font-weight="820" fill="#f8fafc">结果消息</text>
+    <text x="1198" y="328" font-size="16" font-weight="650" fill="#cbd5e1">ToolResultMessage</text>
+
+    <rect x="420" y="500" width="250" height="90" rx="18" fill="#0f172a" stroke="#67e8f9" stroke-width="3"/>
+    <text x="466" y="540" font-size="22" font-weight="820" fill="#f8fafc">并行模式</text>
+    <text x="452" y="568" font-size="16" font-weight="650" fill="#cbd5e1">能并发的工具一起跑</text>
+
+    <rect x="730" y="500" width="250" height="90" rx="18" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+    <text x="776" y="540" font-size="22" font-weight="820" fill="#f8fafc">顺序模式</text>
+    <text x="762" y="568" font-size="16" font-weight="650" fill="#cbd5e1">有副作用时保持顺序</text>
+  </g>
+
+  <path d="M254 308 C270 308 282 308 292 308" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M474 308 C490 308 502 308 512 308" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M694 308 C710 308 722 308 732 308" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M914 308 C930 308 942 308 952 308" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1134 308 C1150 308 1162 308 1172 308" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1040 370 C980 430 850 458 650 492" stroke="#67e8f9" stroke-width="4" stroke-linecap="round" fill="none" marker-end="url(#arrow)" opacity="0.78"/>
+  <path d="M1040 370 C1048 430 990 468 936 494" stroke="#67e8f9" stroke-width="4" stroke-linecap="round" fill="none" marker-end="url(#arrow)" opacity="0.78"/>
+
+  <text x="245" y="692" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" fill="#f8fafc">工具调用的核心边界：模型负责提出动作，Runtime 负责验证、执行、记录和把结果塞回上下文。</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent 仓库分层图</title>
+  <desc id="desc">展示 pi-tui、pi-coding-agent、pi-agent-core、pi-ai 四层之间的职责和依赖方向。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#164e63"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="20" markerHeight="20" refX="16" refY="10" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M4,4 L16,10 L4,16 Z" fill="#93c5fd"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="780" fill="url(#bg)"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="850" fill="#f8fafc">源码分层：四个 Package 各管一段</text>
+  <text x="74" y="134" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650" fill="#dbeafe">上层负责产品形态，下层负责稳定原语；依赖方向尽量向下收敛</text>
+
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <rect x="150" y="210" width="250" height="120" rx="18" fill="#102033" stroke="#a78bfa" stroke-width="3"/>
+    <text x="190" y="260" font-size="28" font-weight="820" fill="#f8fafc">pi-tui</text>
+    <text x="190" y="296" font-size="19" font-weight="650" fill="#cbd5e1">终端输入与渲染</text>
+
+    <rect x="520" y="210" width="360" height="120" rx="18" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="570" y="260" font-size="28" font-weight="820" fill="#f8fafc">pi-coding-agent</text>
+    <text x="570" y="296" font-size="19" font-weight="650" fill="#cbd5e1">CLI、Session、工具、扩展</text>
+
+    <rect x="520" y="410" width="360" height="120" rx="18" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="570" y="460" font-size="28" font-weight="820" fill="#f8fafc">pi-agent-core</text>
+    <text x="570" y="496" font-size="19" font-weight="650" fill="#cbd5e1">Agent 状态与模型-工具循环</text>
+
+    <rect x="520" y="610" width="360" height="120" rx="18" fill="#102033" stroke="#22c55e" stroke-width="3"/>
+    <text x="570" y="660" font-size="28" font-weight="820" fill="#f8fafc">pi-ai</text>
+    <text x="570" y="696" font-size="19" font-weight="650" fill="#cbd5e1">统一模型消息与 Provider API</text>
+
+    <rect x="1000" y="410" width="250" height="120" rx="18" fill="#102033" stroke="#fb7185" stroke-width="3"/>
+    <text x="1040" y="460" font-size="28" font-weight="820" fill="#f8fafc">Providers</text>
+    <text x="1040" y="496" font-size="19" font-weight="650" fill="#cbd5e1">OpenAI / Anthropic / Google</text>
+  </g>
+
+  <path d="M416 270 C452 270 480 270 502 270" stroke="#93c5fd" stroke-width="5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M700 342 C700 362 700 382 700 396" stroke="#93c5fd" stroke-width="5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M700 542 C700 562 700 582 700 596" stroke="#93c5fd" stroke-width="5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M900 670 C990 640 1040 560 1096 536" stroke="#93c5fd" stroke-width="5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <text x="185" y="696" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" fill="#f8fafc">读源码时先分层，别一上来追所有函数。先知道“谁调用谁”，再看“每层保存什么状态”。</text>
+</svg>

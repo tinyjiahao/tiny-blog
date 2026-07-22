@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent 一次 Prompt 的调用链</title>
+  <desc id="desc">展示用户输入从 InteractiveMode 进入 AgentSession、Agent、Agent Loop、Provider、工具执行并回到消息上下文的过程。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="52%" stop-color="#123b4a"/>
+      <stop offset="100%" stop-color="#2d2a6f"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#67e8f9"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="850" fill="#f8fafc">一次 Prompt 的源码级流转</text>
+  <text x="74" y="134" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650" fill="#dbeafe">关键不是调用了几个函数，而是消息如何在模型和工具之间反复闭环</text>
+
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <rect x="78" y="232" width="210" height="100" rx="18" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="116" y="276" font-size="24" font-weight="820" fill="#f8fafc">用户输入</text>
+    <text x="116" y="306" font-size="17" font-weight="650" fill="#cbd5e1">terminal text</text>
+
+    <rect x="380" y="232" width="240" height="100" rx="18" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="420" y="276" font-size="24" font-weight="820" fill="#f8fafc">AgentSession</text>
+    <text x="420" y="306" font-size="17" font-weight="650" fill="#cbd5e1">模板 / Skill / Hook</text>
+
+    <rect x="712" y="232" width="210" height="100" rx="18" fill="#102033" stroke="#67e8f9" stroke-width="3"/>
+    <text x="766" y="276" font-size="24" font-weight="820" fill="#f8fafc">Agent</text>
+    <text x="742" y="306" font-size="17" font-weight="650" fill="#cbd5e1">messages state</text>
+
+    <rect x="1014" y="232" width="240" height="100" rx="18" fill="#102033" stroke="#a78bfa" stroke-width="3"/>
+    <text x="1056" y="276" font-size="24" font-weight="820" fill="#f8fafc">Agent Loop</text>
+    <text x="1056" y="306" font-size="17" font-weight="650" fill="#cbd5e1">turn / stream / events</text>
+
+    <rect x="862" y="480" width="240" height="100" rx="18" fill="#102033" stroke="#22c55e" stroke-width="3"/>
+    <text x="922" y="524" font-size="24" font-weight="820" fill="#f8fafc">Provider</text>
+    <text x="906" y="554" font-size="17" font-weight="650" fill="#cbd5e1">stream assistant</text>
+
+    <rect x="420" y="480" width="240" height="100" rx="18" fill="#102033" stroke="#fb7185" stroke-width="3"/>
+    <text x="462" y="524" font-size="24" font-weight="820" fill="#f8fafc">Tool Calls</text>
+    <text x="454" y="554" font-size="17" font-weight="650" fill="#cbd5e1">execute + result</text>
+
+    <rect x="558" y="656" width="300" height="74" rx="18" fill="#0f172a" stroke="#eab308" stroke-width="3"/>
+    <text x="610" y="702" font-size="24" font-weight="820" fill="#f8fafc">新的模型上下文</text>
+  </g>
+
+  <path d="M304 282 C328 282 346 282 364 282" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M636 282 C660 282 678 282 696 282" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M938 282 C962 282 980 282 998 282" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1134 346 C1120 408 1082 452 1044 474" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M846 530 C774 530 726 530 676 530" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M540 596 C574 624 612 642 648 650" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M830 650 C926 612 1006 420 1056 346" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <text x="338" y="782" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" fill="#f8fafc">messages -> model -> tool calls -> tool results -> messages，是整套源码最核心的闭环。</text>
+</svg>
