@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent Extension 使用指南封面图</title>
+  <desc id="desc">展示扩展文件通过 ExtensionAPI 接入 Pi Runtime，并注册工具、命令、Hook、UI 和 Provider。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="48%" stop-color="#123b4a"/>
+      <stop offset="100%" stop-color="#2d2a6f"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M4,4 L18,11 L4,18 Z" fill="#67e8f9"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="780" fill="url(#bg)"/>
+  <circle cx="1088" cy="126" r="260" fill="#38bdf8" opacity="0.12"/>
+  <circle cx="230" cy="690" r="280" fill="#a78bfa" opacity="0.10"/>
+
+  <text x="80" y="108" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="850" fill="#f8fafc">Pi Agent Extension</text>
+  <text x="82" y="160" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="650" fill="#dbeafe">通过 ExtensionAPI，把工具、命令、Hook、UI 和 Provider 接入运行时</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="96" y="274" width="300" height="260" rx="28" fill="url(#panel)" stroke="#38bdf8" stroke-width="3"/>
+    <text x="142" y="334" font-size="30" font-weight="850" fill="#f8fafc">Extension File</text>
+    <text x="142" y="378" font-size="20" font-weight="650" fill="#dbeafe">.pi/extensions/*.ts</text>
+    <text x="142" y="414" font-size="20" font-weight="650" fill="#dbeafe">export default function(pi)</text>
+    <rect x="142" y="456" width="190" height="44" rx="14" fill="#0f172a" stroke="#67e8f9" stroke-width="2"/>
+    <text x="170" y="485" font-size="18" font-weight="750" fill="#ecfeff">register / on</text>
+
+    <rect x="506" y="310" width="270" height="188" rx="26" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+    <text x="562" y="372" font-size="31" font-weight="850" fill="#f8fafc">ExtensionAPI</text>
+    <text x="552" y="418" font-size="20" font-weight="650" fill="#dbeafe">pi.registerTool()</text>
+    <text x="552" y="454" font-size="20" font-weight="650" fill="#dbeafe">pi.registerCommand()</text>
+
+    <rect x="886" y="274" width="350" height="260" rx="30" fill="#0f172a" stroke="url(#core)" stroke-width="5"/>
+    <text x="984" y="334" font-size="34" font-weight="850" fill="#f8fafc">Pi Runtime</text>
+    <text x="948" y="378" font-size="20" font-weight="650" fill="#dbeafe">Agent Loop / Session / TUI</text>
+    <text x="948" y="414" font-size="20" font-weight="650" fill="#dbeafe">在运行时接收扩展注册的能力</text>
+  </g>
+
+  <path d="M414 404 C444 404 466 404 488 404" stroke="#67e8f9" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M794 404 C824 404 846 404 868 404" stroke="#67e8f9" stroke-width="6" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <path d="M1061 548 L1061 580" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M780 580 L1330 580" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M780 580 L780 606" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M920 580 L920 606" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1060 580 L1060 606" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1200 580 L1200 606" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1330 580 L1330 606" stroke="#67e8f9" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="720" y="620" width="120" height="56" rx="16" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="750" y="656" font-size="20" font-weight="820" fill="#f8fafc">Tools</text>
+
+    <rect x="860" y="620" width="120" height="56" rx="16" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="878" y="656" font-size="18" font-weight="820" fill="#f8fafc">Commands</text>
+
+    <rect x="1000" y="620" width="120" height="56" rx="16" fill="#102033" stroke="#a78bfa" stroke-width="3"/>
+    <text x="1030" y="656" font-size="20" font-weight="820" fill="#f8fafc">Hooks</text>
+
+    <rect x="1140" y="620" width="120" height="56" rx="16" fill="#102033" stroke="#22c55e" stroke-width="3"/>
+    <text x="1188" y="656" font-size="20" font-weight="820" fill="#f8fafc">UI</text>
+
+    <rect x="1270" y="620" width="120" height="56" rx="16" fill="#102033" stroke="#fb7185" stroke-width="3"/>
+    <text x="1292" y="656" font-size="19" font-weight="820" fill="#f8fafc">Provider</text>
+  </g>
+
+  <text x="286" y="744" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="750" fill="#f8fafc">Skill 让模型学会做事；Extension 让 Pi 的运行时真的多出一块能力。</text>
+</svg>
