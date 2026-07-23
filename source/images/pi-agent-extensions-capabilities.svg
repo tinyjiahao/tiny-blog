@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent Extension 能力全景图</title>
+  <desc id="desc">按工具层、交互层、Agent 层和集成层展示 Pi Agent Extension 能改变的行为。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="56%" stop-color="#164e63"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="850" fill="#f8fafc">Extension 能改变 Pi 的哪些行为</text>
+  <text x="74" y="134" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650" fill="#dbeafe">它不是一段说明文档，而是插入 Pi 运行时的 TypeScript 模块</text>
+
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <rect x="116" y="220" width="510" height="190" rx="24" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="156" y="272" font-size="30" font-weight="820" fill="#f8fafc">工具层</text>
+    <text x="156" y="318" font-size="20" font-weight="650" fill="#dbeafe">注册新工具，或覆盖 read / bash / edit / write</text>
+    <text x="156" y="356" font-size="20" font-weight="650" fill="#dbeafe">让模型通过 schema 调用真实能力</text>
+
+    <rect x="774" y="220" width="510" height="190" rx="24" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="814" y="272" font-size="30" font-weight="820" fill="#f8fafc">交互层</text>
+    <text x="814" y="318" font-size="20" font-weight="650" fill="#dbeafe">注册 slash command、快捷键、状态栏和弹窗</text>
+    <text x="814" y="356" font-size="20" font-weight="650" fill="#dbeafe">让用户直接控制运行时行为</text>
+
+    <rect x="116" y="500" width="510" height="190" rx="24" fill="#102033" stroke="#a78bfa" stroke-width="3"/>
+    <text x="156" y="552" font-size="30" font-weight="820" fill="#f8fafc">Agent 层</text>
+    <text x="156" y="598" font-size="20" font-weight="650" fill="#dbeafe">监听事件，拦截工具，修改 system prompt</text>
+    <text x="156" y="636" font-size="20" font-weight="650" fill="#dbeafe">把策略放进执行链路，而不是只写提示词</text>
+
+    <rect x="774" y="500" width="510" height="190" rx="24" fill="#102033" stroke="#22c55e" stroke-width="3"/>
+    <text x="814" y="552" font-size="30" font-weight="820" fill="#f8fafc">集成层</text>
+    <text x="814" y="598" font-size="20" font-weight="650" fill="#dbeafe">注册 Provider，连接外部服务，贡献资源</text>
+    <text x="814" y="636" font-size="20" font-weight="650" fill="#dbeafe">把 Pi 接进团队自己的系统</text>
+  </g>
+
+  <text x="308" y="768" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" fill="#f8fafc">一句话：Extension 适合“改变 Pi 怎么运行”，不只是“告诉模型怎么回答”。</text>
+</svg>

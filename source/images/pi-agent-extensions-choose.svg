@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Pi Agent Extension、Skill、Prompt Template 选择图</title>
+  <desc id="desc">展示什么时候使用 AGENTS.md、Skill、Prompt Template 或 Extension。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="54%" stop-color="#164e63"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M3,3 L15,9 L3,15 Z" fill="#93c5fd"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#bg)"/>
+  <text x="72" y="92" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="850" fill="#f8fafc">什么时候用 Extension</text>
+  <text x="74" y="134" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="650" fill="#dbeafe">先问一句：你只是要改变模型行为，还是要改变 Pi 运行时？</text>
+
+  <g font-family="Inter, Arial, sans-serif" filter="url(#shadow)">
+    <rect x="524" y="214" width="352" height="112" rx="22" fill="#0f172a" stroke="#67e8f9" stroke-width="4"/>
+    <text x="598" y="258" font-size="26" font-weight="850" fill="#f8fafc">我要定制什么？</text>
+    <text x="584" y="292" font-size="18" font-weight="650" fill="#cbd5e1">说明、流程、模板，还是运行时能力</text>
+
+    <rect x="96" y="474" width="260" height="116" rx="20" fill="#102033" stroke="#38bdf8" stroke-width="3"/>
+    <text x="140" y="520" font-size="25" font-weight="820" fill="#f8fafc">AGENTS.md</text>
+    <text x="134" y="552" font-size="17" font-weight="650" fill="#dbeafe">项目规则和约定</text>
+
+    <rect x="416" y="474" width="260" height="116" rx="20" fill="#102033" stroke="#f59e0b" stroke-width="3"/>
+    <text x="500" y="520" font-size="25" font-weight="820" fill="#f8fafc">Skill</text>
+    <text x="456" y="552" font-size="17" font-weight="650" fill="#dbeafe">一类任务的操作手册</text>
+
+    <rect x="736" y="474" width="260" height="116" rx="20" fill="#102033" stroke="#a78bfa" stroke-width="3"/>
+    <text x="782" y="520" font-size="25" font-weight="820" fill="#f8fafc">Prompt Template</text>
+    <text x="790" y="552" font-size="17" font-weight="650" fill="#dbeafe">固定格式的提示词</text>
+
+    <rect x="1056" y="474" width="260" height="116" rx="20" fill="#102033" stroke="#22c55e" stroke-width="3"/>
+    <text x="1120" y="520" font-size="25" font-weight="820" fill="#f8fafc">Extension</text>
+    <text x="1100" y="552" font-size="17" font-weight="650" fill="#dbeafe">工具、命令、Hook、UI</text>
+  </g>
+
+  <path d="M606 340 C500 388 348 430 238 462" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M668 340 C628 386 584 428 560 462" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M738 340 C780 386 824 428 850 462" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M794 340 C902 388 1054 430 1170 462" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <text x="286" y="696" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" fill="#f8fafc">最简单的判断：只是“告诉模型怎么做”别急着写扩展；要改变执行链路，再上 Extension。</text>
+</svg>
