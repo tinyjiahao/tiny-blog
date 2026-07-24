@@ -37,6 +37,26 @@
 
 > 在 **Settings → Variables and Secrets** 中添加环境变量。
 
+### D1 阅读次数数据库（必需）
+
+文章详情页通过 Cloudflare Pages Function 的 `/api/views` 接口记录阅读次数。本站复用现有的 `blog-db` D1 数据库，首次部署前需要初始化数据表并绑定到 Pages 项目。
+
+1. 在 Cloudflare Dashboard → **Storage & databases → D1 SQL database** 中打开 `blog-db`。
+2. 在数据库的 Console 中执行 [`migrations/0001_create_post_views.sql`](./migrations/0001_create_post_views.sql) 中的 SQL。
+3. 进入 **Workers & Pages → 本 Pages 项目 → Settings → Bindings → Add → D1 database bindings**：
+   - Variable name：`BLOG_VIEWS_DB`
+   - D1 database：`blog-db`
+4. 保存后重新部署项目，使绑定生效。Preview 和 Production 环境需要分别确认绑定。
+
+也可以使用 Wrangler 初始化表（将数据库名替换为实际名称）：
+
+```bash
+npx wrangler d1 execute blog-db --remote \
+  --file=./migrations/0001_create_post_views.sql
+```
+
+部署完成后访问任意文章详情页，页面末尾应显示阅读次数；可在浏览器开发者工具中确认 `POST /api/views` 返回 `200`。Pages Function 请求会计入 Workers 请求额度。
+
 ## 三、自定义域名
 
 部署成功后绑定 `blog.searchdiff.com`：

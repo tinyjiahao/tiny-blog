@@ -13,6 +13,7 @@
 | Scheme | Gemini |
 | Node | 22（见 `.nvmrc`） |
 | 部署 | Cloudflare Pages（Git 集成，自动构建） |
+| 阅读次数 | Cloudflare Pages Functions + D1 |
 
 ## 本地开发
 
@@ -38,6 +39,8 @@ tiny-blog/
 ├── package.json         # 依赖与脚本
 ├── .nvmrc               # Node 版本锁定（22）
 ├── scaffolds/           # 文章模板（post / page / draft）
+├── functions/api/       # Cloudflare Pages Functions API
+├── migrations/          # D1 数据库迁移
 ├── source/
 │   └── _posts/          # 博文目录（Markdown）
 ├── DEPLOY.md            # Cloudflare Pages 部署指南
