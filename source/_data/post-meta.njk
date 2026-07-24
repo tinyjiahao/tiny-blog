@@ -1,0 +1,42 @@
+{# 只在文章详情页显示，避免首页文章列表被计入阅读次数 #}
+{%- if not is_index %}
+  <span class="post-meta-item d1-view-count" title="阅读次数" aria-live="polite">
+    <span class="post-meta-item-icon">
+      <i class="far fa-eye" aria-hidden="true"></i>
+    </span>
+    <span class="post-meta-item-text">阅读次数：</span>
+    <span class="d1-view-count-value">加载中…</span>
+  </span>
+  <script>
+  (function () {
+    'use strict';
+
+    var container = document.querySelector('.d1-view-count');
+    if (!container) return;
+
+    var value = container.querySelector('.d1-view-count-value');
+
+    fetch('/api/views', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: window.location.pathname }),
+      credentials: 'same-origin'
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        if (!Number.isSafeInteger(data.views) || data.views < 1) {
+          throw new Error('Invalid view count');
+        }
+        value.textContent = data.views.toLocaleString('zh-CN');
+        container.classList.add('is-loaded');
+      })
+      .catch(function () {
+        value.textContent = '暂不可用';
+        container.classList.add('is-error');
+      });
+  })();
+  </script>
+{%- endif %}
